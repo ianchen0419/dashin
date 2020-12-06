@@ -1,0 +1,338 @@
+/*
+	Theme Name: Dashin
+	Description: Dashin Co.Ltd.
+	Author: Work Capital
+	Author URI: https://www.work-capital.co.jp/
+	Version: 1.0
+	Tags: skyblue, pink, offical page
+	License: GNU General Public License v2 or later
+	License URI: http://www.gnu.org/licenses/gpl-2.0.html
+	*/
+
+/********************
+Width and Align
+********************/
+body {
+	margin: 0;
+	font-family: sans-serif;
+}
+
+.wrapper-size {
+	padding: 0 20px;
+	max-width: 1200px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+main > *:not(.alignright):not(.alignleft):not(.is-style-slider) {
+	width: calc(100% - 80px);
+	max-width: 1200px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+@media screen and (max-width: 768px) {
+	main > *:not(.alignright):not(.alignleft):not(.is-style-slider) {
+		width: calc(100% - 40px);
+	}
+}
+
+.alignfull {
+	width: 100%;
+	max-width: none;
+}
+
+.alignleft {
+	margin-left: calc((100vw - 1200px) / 2);
+}
+
+.alignright {
+	margin-right: calc((100vw - 1200px) / 2);
+}
+
+.aligncenter {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+@media(max-width: 1140px) {
+	.alignleft {
+		margin-left: 20px;
+	}
+
+	.alignright {
+		margin-right: 20px;
+	}
+}
+
+/********************
+Menu
+********************/
+#header {
+	padding: 12px 0;
+}
+
+#header nav li {
+	list-style: none;
+	display: inline-block;
+}
+
+#header .custom-logo-link img {
+	width: 180px;
+	height: auto;
+}
+
+#header nav a {
+	text-decoration: none;
+	color: currentColor;
+	margin: 0 16px;
+}
+
+/********************
+Gallery
+********************/
+.blocks-gallery-grid .blocks-gallery-image figcaption, 
+.blocks-gallery-grid .blocks-gallery-item figcaption, 
+.wp-block-gallery .blocks-gallery-image figcaption, 
+.wp-block-gallery .blocks-gallery-item figcaption {
+	box-sizing: border-box; /*bug fix*/
+}
+
+/********************
+Visual
+********************/
+#visual {
+	margin-bottom: 100px;
+}
+
+/********************
+Slider
+********************/
+.wp-block-group.is-style-slider {
+	width: 100%;
+	max-width: none;
+	overflow: hidden;
+	position: relative;
+}
+
+.wp-block-group.is-style-slider .wp-block-group__inner-container {
+	display: flex;
+	transition: transform 0.3s;
+	transform: translate(-100vw);
+}
+
+.wp-block-group.is-style-slider .wp-block-group__inner-container .wp-block-cover {
+	flex-shrink: 0;
+	height: calc(100vh - 200px);
+	box-sizing: border-box;
+	flex-basis: 100vw;
+}
+
+.wp-block-group.is-style-slider .wp-block-group__inner-container .wp-block-cover p {
+	width: 50%;
+	min-width: 500px;
+}
+
+.wp-block-group.is-style-slider .wp-block-group__inner-container .wp-block-cover .wp-block-buttons {
+	margin-top: 40px;
+}
+
+.dots {
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+.dot {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: #fff;
+	margin: 20px 5px;
+	cursor: pointer;
+	transition: background 0.3s;
+}
+
+.dot.active {
+	background: #4978BC;
+}
+/*.slide-holder {
+	width: 100%;
+	overflow: hidden;
+	max-height: calc(100vw / 1.35211);
+}
+
+.slide-wrapper {
+	width: 500vw;
+	display: flex;
+	transition: transform 0.3s;
+}
+
+.slide {
+	height: calc(100vh - 200px);
+	min-height: 420px;
+	width: 100vw;
+	background-size: cover;
+	position: relative;
+	background: linear-gradient(50deg, #000 1.5%, rgba(0, 0, 0, 0.35) 25%, rgba(0, 0, 0, 0) 50%)
+}
+
+.slide img {
+	position: absolute;
+	z-index: -1;
+}
+
+.slide-content {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	box-sizing: border-box;
+}
+
+.slide-content h2, .slide-content p {
+	width: 50%;
+	min-width: 500px;
+	}*/
+
+/********************
+Footer
+********************/
+footer {
+	padding: 20px 0;
+}
+
+
+/********************
+Colors
+********************/
+:root .has-white-background-color {
+	background-color: #FFFFFF;
+}
+
+:root .has-white-color {
+	color: #FFFFFF;
+}
+
+:root .has-black-background-color {
+	background-color: #262626;
+}
+
+:root .has-black-color {
+	color: #262626;
+}
+
+:root .has-blue-background-color {
+	background-color: #4978BC;
+}
+
+:root .has-blue-color {
+	color: #4978BC;
+}
+
+:root .has-sky-background-color {
+	background-color: #EAF3FA;
+}
+
+:root .has-sky-color {
+	color: #EAF3FA;
+}
+
+:root .has-rose-background-color {
+	background-color: #FDF4F5;
+}
+
+:root .has-rose-color {
+	color: #FDF4F5;
+}
+
+:root .has-gray-background-color {
+	background-color: #595959;
+}
+
+:root .has-gray-color {
+	color: #595959;
+}
+
+/********************
+Heading
+********************/
+h2 {
+	font-size: 2em;
+}
+
+/********************
+Buttons
+********************/
+.wp-block-button__link {
+	background: #F27179;
+	border-radius: 30px;
+	padding: 8px 10px 8px 20px;
+	display: flex;
+	align-items: center;
+}
+
+.wp-block-button__link:after {
+	content: '\e61b';
+	font-family: anticons-desktop;
+	background: #fff;
+	color: #F27179;
+	border-radius: 50%;
+	padding: 4px;
+	font-size: 24px;
+	margin-left: 20px;
+}
+
+/********************
+Latest Posts
+********************/
+.wp-block-latest-posts__featured-image img {
+	width: 100%;
+}
+
+.wp-block-latest-posts.columns-3 li {
+	width: calc(33.33333% - 20px / 3 * 2);
+}
+
+.wp-block-latest-posts.columns-3 li:last-child {
+	margin-right: 0;
+}
+
+.wp-block-latest-posts__featured-image ~ a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #262626;
+}
+
+/********************
+InspectorControls 自作マージンコントロール
+********************/
+.margin0 {
+	margin-bottom: 0 !important;
+	margin-top: 0 !important;
+}
+
+.margin20 {
+	margin-bottom: 20px !important;
+	margin-top: 20px !important;
+}
+
+.margin40 {
+	margin-bottom: 40px !important;
+	margin-top: 40px !important;
+}
+
+.margin60 {
+	margin-bottom: 60px !important;
+	margin-top: 60px !important;
+}
+
+.margin80 {
+	margin-bottom: 80px !important;
+	margin-top: 80px !important;
+}
