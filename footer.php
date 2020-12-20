@@ -1,26 +1,22 @@
-	<footer id="footerMenu">
+	<footer id="footerMenu" class="has-sky-background-color">
 		<div class="wrapper-size">
-			<div class="wp-block-columns">
-				<div class="wp-block-column"></div>
+			<div class="wp-block-columns margin20">
 				<div class="wp-block-column">
-					<?php dynamic_sidebar('footer-contact'); ?>
+					<?php the_custom_logo(); ?>
+				</div>
+				<div class="wp-block-column">
+					<?php wp_nav_menu(array('theme_location' => 'footer')); ?>
+				</div>
+				<div class="wp-block-column">
+					<?php wp_nav_menu(array('theme_location' => 'social')); ?>
 				</div>
 			</div>
-
 		</div>
 	</footer>
 	<footer id="footerInfo" class="has-blue-background-color has-white-color">
 		<div class="wrapper-size">
-			<div class="wp-block-columns has-small-font-size margin40">
-				<div class="wp-block-column" style="flex-basis: 500px">
-					Copyrights © 大新生殖中心婦產科診所 All Rights Reserved. | <a><u>隱私權保護及資訊安全</u></a>
-				</div>
-				<div class="wp-block-column has-text-align-right">
-					<i class="ai-environment-o"></i>
-					台中巿南屯區大進街449號
-					<i class="ai-phone" style="margin-left: 10px"></i>
-					04-2320-6969
-				</div>
+			<div class="wp-block-columns has-small-font-size margin20 are-vertically-aligned-center">
+				<?php dynamic_sidebar('footer-info'); ?>
 			</div>
 		</div>
 	</footer>

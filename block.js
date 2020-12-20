@@ -30,6 +30,30 @@ wp.blocks.registerBlockStyle(
 	}
 )
 
+//メディアとテキスト　ピンク色の付箋紙スタイル
+wp.blocks.registerBlockStyle(
+	'core/media-text', {
+		name: 'rose-sticky',
+		label: '粉紅色紙'
+	}
+)
+
+//メディアとテキスト　水色の付箋紙スタイル
+wp.blocks.registerBlockStyle(
+	'core/media-text', {
+		name: 'sky-sticky',
+		label: '淺藍色紙'
+	}
+)
+
+//メディアとテキスト　丸模様背景強調スタイル
+wp.blocks.registerBlockStyle(
+	'core/media-text', {
+		name: 'radius',
+		label: '文字內容強調'
+	}
+)
+
 
 // 上下マージン設定
 var withInspectorControls = wp.compose.createHigherOrderComponent(function(BlockEdit) {

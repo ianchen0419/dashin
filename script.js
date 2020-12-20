@@ -75,3 +75,23 @@ function changeSlide(delegateIndex){
 	clearInterval(slideTimer);
 	slideTimer=setInterval(sliding, 5000);
 }
+
+/********************
+Full Menu Show
+********************/
+function showMenu(ths){
+	var scrollBarWidth=innerWidth-document.body.clientWidth;
+	var headerOriginPaddingRight=parseInt(getComputedStyle(header).paddingRight.replace('px', ''));
+	
+	if(document.body.classList.contains('menu-open')){
+		document.body.style.paddingRight='';
+		ths.style.paddingRight='';
+		header.style.paddingRight='';
+	}else{
+		document.body.style.paddingRight=scrollBarWidth+'px';
+		ths.style.paddingRight=scrollBarWidth+'px';
+		header.style.paddingRight=scrollBarWidth+headerOriginPaddingRight+'px';
+	}
+
+	document.body.classList.toggle('menu-open');
+}

@@ -16,7 +16,10 @@ add_theme_support('custom-logo', $defaults);
 ********************/
 function register_my_menu() {
 	$locations = array(
-		'primary'  => 'primary',
+		'header'	=> 'header',
+		'footer'	=> 'footer',
+		'social'	=> 'social',
+		'full'		=> 'full',
 	);
 	register_nav_menus($locations);
 }
@@ -26,32 +29,22 @@ add_action('init', 'register_my_menu');
 ウィジェット（フッター）有効化
 ********************/
 function register_my_widget() {
-
-	// register_sidebar(
-	// 	array(
-	// 		'name' 			=> 'Contact Info',
-	// 		'id' 			=> 'footer-contact',
-	// 		'description' 	=> '最下面的藍色聯絡資訊',
-	// 		'before_widget' => '<div class="wp-block-column">',
-	// 		'after_widget' 	=> '</div>',
-	// 		'before_title' 	=> '<h3 hidden>',
-	// 		'after_title' 	=> '</h3>'
-	// 	)
-	// );
-
 	register_sidebar(
-		array(
-			'name' 			=> 'Quick Menu',
-			'id' 			=> 'footer-quick',
-			'description' 	=> '下方的淺藍色Menu',
-			'before_widget' => '<div class="wp-block-column">',
-			'after_widget' 	=> '</div>',
-			'before_title' 	=> '<h3 hidden>',
-			'after_title' 	=> '</h3>'
-		)
-	);
+		array_merge(
+			array(
+				'name' => 'フッター',
+				'id' => 'footer-info',
+				'description' => 'デフォルトフッター',
+				'before_widget' => '<div class="wp-block-column">',
+				'after_widget' => '</div>',
+				'before_title' => '<h3 hidden>',
+				'after_title' => '</h3>'
+				)
+			)
+		);
 }
 add_action('widgets_init', 'register_my_widget');
+
 
 /********************
 カラーパレット定義
@@ -107,12 +100,56 @@ add_action('enqueue_block_editor_assets', 'add_my_assets_to_block_editor');
 /********************
 全幅ブロック有効化
 ********************/
-// add_theme_support('align-wide');
+add_theme_support('align-wide');
 
 /********************
 アイキャッチ画像
 ********************/
 add_theme_support('post-thumbnails');
+
+
+/********************
+ホームページ＆ニュース一覧　カテゴリーつきの投稿一覧ショートコード
+********************/
+add_shortcode('myposts', 'myposts_function');
+function myposts_init(){
+	function myposts_function($atts){
+
+		$args=shortcode_atts(array(
+			'posts_per_page' => '-1',
+		), $atts);
+
+
+		$posts=get_posts($args);
+		$output='<div class="wp-block-latest-posts wp-block-latest-posts__list is-grid columns-3 has-dates">';
+
+		for($i=0;$i<3;$i++){
+			$mypost_date=explode(' ', $posts[$i]->post_date)[0];
+			$mypost_title=$posts[$i]->post_title;
+			$mypost_ID=$posts[$i]->ID;
+			$mypost_url=get_the_permalink($mypost_ID);
+			$mypost_category=get_the_category($mypost_ID)[0]->name;
+			$mypost_category_ID=get_the_category($mypost_ID)[0]->term_id;
+			$mypost_category_url=get_category_link($mypost_category_ID);
+			$mypost_thumbnail=get_the_post_thumbnail_url($mypost_ID);
+
+			$output.='<li>'.
+						'<div class="wp-block-latest-posts__featured-image">'.
+							'<img width="150" height="150" src="'.$mypost_thumbnail.'" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" loading="lazy" />'.
+						'</div>'.
+						'<a href="'.$mypost_url.'">'.$mypost_title.'</a>'.
+						'<time class="wp-block-latest-posts__post-date">'.$mypost_date.'</time>'.
+						'<a href="'.$mypost_category_url.'" class="category" target="_self">'.$mypost_category.'</a>'.
+					'</li>';
+		}
+
+		$output.='</div>';
+
+		return $output;
+
+	}
+}
+add_action('init', 'myposts_init');
 
 
 ?>

@@ -61,3 +61,32 @@
 	margin-top: 0;
 	margin-bottom: 0;
 }
+
+/*Media and Text Pink Sticky*/
+.wp-block-media-text[class*="sticky"] {
+	padding-bottom: 80px;
+}
+
+.wp-block-media-text[class*="sticky"] .wp-block-media-text__content {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	position: relative;
+	top: 80px;
+}
+
+.wp-block-media-text.is-style-rose-sticky .wp-block-media-text__content {
+	background: #FDF4F5;
+}
+
+.wp-block-media-text.is-style-sky-sticky .wp-block-media-text__content {
+	background: #EAF3FA;
+}
+
+.wp-block-media-text.is-style-radius .wp-block-media-text__content {
+	background-image: url("data:image/svg+xml,%3Csvg width='800' height='576' viewBox='0 0 800 576' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='393' cy='309' r='407' fill='%23FDE5E7' opacity='0.5'/%3E%3Ccircle cx='393.396' cy='308.604' r='265.659' fill='%23FEE6E8' opacity='0.5'/%3E%3Crect x='170.496' y='49.2808' width='19.0039' height='19.0039' fill='white' opacity='0.5'/%3E%3Crect x='432.772' y='-9.17578' width='19.0039' height='19.0039' fill='white' opacity='0.5'/%3E%3Crect x='609.962' y='9.68872' width='19.0039' height='19.0039' fill='white' opacity='0.5'/%3E%3Crect x='590.535' y='67.7168' width='19.0039' height='19.0039' fill='white' opacity='0.5'/%3E%3Crect x='635.3' y='49.2808' width='19.0039' height='19.0039' fill='white' opacity='0.5'/%3E%3Crect x='701.896' y='261.273' width='19.0039' height='19.0039' fill='white' opacity='0.5'/%3E%3Crect x='731.062' y='299.72' width='19.0039' height='19.0039' fill='white' opacity='0.5'/%3E%3Crect x='711.176' y='373.961' width='19.0039' height='19.0039' fill='white' opacity='0.5'/%3E%3Crect x='112.695' y='85.7043' width='19.0039' height='19.0039' fill='white' opacity='0.5'/%3E%3Crect x='116.65' y='487.953' width='19.0039' height='19.0039' fill='white' opacity='0.5'/%3E%3Crect x='4.55957' y='344.795' width='19.0039' height='19.0039' fill='white' opacity='0.5'/%3E%3Crect x='62.8911' y='299.72' width='19.0039' height='19.0039' fill='white' opacity='0.5'/%3E%3Crect x='23.1201' y='270.554' width='19.0039' height='19.0039' fill='white' opacity='0.5'/%3E%3Crect x='162.579' y='544.173' width='19.0039' height='19.0039' fill='white' opacity='0.5'/%3E%3Crect x='654.17' y='535.7' width='19.0039' height='19.0039' fill='white' opacity='0.5'/%3E%3Crect x='676.707' y='487.974' width='19.0039' height='19.0039' fill='white' opacity='0.5'/%3E%3Crect x='609.169' y='522.001' width='19.0039' height='19.0039' fill='white' opacity='0.5'/%3E%3C/svg%3E%0A");
+	height: 100%;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
