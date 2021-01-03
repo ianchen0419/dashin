@@ -17,9 +17,7 @@
 	<?php wp_body_open(); ?>
 	<section id="loading">
 		<svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
-			<circle cx="50" cy="50" fill="none" stroke="#4978BC" stroke-width="10" r="35" stroke-dasharray="165 57">
-				<!-- <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform> -->
-			</circle>
+			<circle cx="50" cy="50" fill="none" stroke="#4978BC" stroke-width="10" r="35" stroke-dasharray="165 57"></circle>
 		</svg>
 	</section>
 	<header id="header">
@@ -49,6 +47,15 @@
 					<text class="svg-text2" font-family="sans-serif" font-size="smaller" x="22.5" y="45" dominant-baseline="middle" fill="white" text-anchor="middle">CLOSE</text>
 				</svg>
 			</a>
-			<?php wp_nav_menu(array('theme_location' => 'full')); ?>
+			<table width="100%">
+				<tr>
+					<td>
+						<?php wp_nav_menu(array('theme_location' => 'full')); ?>
+					</td>
+					<td valign="bottom">
+						<?php wp_nav_menu(array('theme_location' => 'social')); ?>
+					</td>
+				</tr>
+			</table>
 		</div>
 	</header>
