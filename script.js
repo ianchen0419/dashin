@@ -1,4 +1,28 @@
 /********************
+Scroll Motion
+********************/
+window.addEventListener('scroll', checkBlock);
+function checkBlock(){
+	var motionBlocks=document.querySelectorAll('.wp-block-media-text[class*="sticky"], .wp-block-latest-posts');
+	for(i=0;i<motionBlocks.length;i++){
+		var itemOffsetTop=motionBlocks[i].offsetTop;
+		if(motionBlocks[i].parentNode.id!=='contact'){
+			itemOffsetTop+=motionBlocks[i].offsetParent.offsetTop;
+		}
+		var itemInAt = (window.scrollY + window.innerHeight) - motionBlocks[i].clientHeight / 2;
+		var itemBottom = itemOffsetTop + motionBlocks[i].clientHeight;
+		var isHalfShown = itemInAt > itemOffsetTop;
+		var isNotScrolledPast = window.scrollY < itemBottom;
+		if (isHalfShown && isNotScrolledPast) {
+			motionBlocks[i].classList.add('wp-motion');
+		} else {
+			motionBlocks[i].classList.remove('wp-motion');
+		}
+	}
+	
+}
+
+/********************
 TopPage Slider
 ********************/
 var slider=document.querySelector('.wp-block-group.is-style-slider .wp-block-group__inner-container');

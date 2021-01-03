@@ -134,12 +134,14 @@ function myposts_init(){
 			$mypost_thumbnail=get_the_post_thumbnail_url($mypost_ID);
 
 			$output.='<li>'.
-						'<div class="wp-block-latest-posts__featured-image">'.
-							'<img width="150" height="150" src="'.$mypost_thumbnail.'" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" loading="lazy" />'.
-						'</div>'.
-						'<a href="'.$mypost_url.'">'.$mypost_title.'</a>'.
+						'<a class="post-image" href="'.$mypost_url.'">'.
+							'<div class="wp-block-latest-posts__featured-image" >'.
+								'<img width="150" height="150" src="'.$mypost_thumbnail.'" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" loading="lazy" />'.
+							'</div>'.
+						'</a>'.
+						'<a class="post-title" href="'.$mypost_url.'">'.$mypost_title.'</a>'.
 						'<time class="wp-block-latest-posts__post-date">'.$mypost_date.'</time>'.
-						'<a href="'.$mypost_category_url.'" class="category" target="_self">'.$mypost_category.'</a>'.
+						'<a class="post-category" href="'.$mypost_category_url.'" target="_self">'.$mypost_category.'</a>'.
 					'</li>';
 		}
 
