@@ -11,7 +11,6 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ant-design-icons/dist/anticons.min.css" />
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
-	<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> -->
 </head>
 <body>
 	<script src="<?php bloginfo('template_directory') ?>/loading.js"></script>
@@ -19,10 +18,9 @@
 	<section id="loading">
 		<svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
 			<circle cx="50" cy="50" fill="none" stroke="#4978BC" stroke-width="10" r="35" stroke-dasharray="165 57">
-				<animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
+				<!-- <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform> -->
 			</circle>
 		</svg>
-		<!-- <i class="ai-loading-3-quarters"></i> -->
 	</section>
 	<header id="header">
 		<table width="100%">
