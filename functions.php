@@ -115,8 +115,12 @@ add_shortcode('myposts', 'myposts_function');
 function myposts_init(){
 	function myposts_function($atts){
 
+		$category_id=get_cat_ID($atts['category']);
+		$atts['category']=$category_id;
+
 		$args=shortcode_atts(array(
 			'posts_per_page' => '-1',
+			'category' => '',
 		), $atts);
 
 
@@ -128,10 +132,17 @@ function myposts_init(){
 			$mypost_title=$posts[$i]->post_title;
 			$mypost_ID=$posts[$i]->ID;
 			$mypost_url=get_the_permalink($mypost_ID);
-			$mypost_category=get_the_category($mypost_ID)[0]->name;
+			$mypost_category_name=get_the_category($mypost_ID)[0]->name;
+			$mypost_category_slug=get_the_category($mypost_ID)[0]->slug;
 			$mypost_category_ID=get_the_category($mypost_ID)[0]->term_id;
-			$mypost_category_url=get_category_link($mypost_category_ID);
-			$mypost_thumbnail=get_the_post_thumbnail_url($mypost_ID);
+			$mypost_category_url=get_site_url().'/news#'.$mypost_category_slug;
+			$mypost_thumbnail=get_the_post_thumbnail_url($mypost_ID, array('380' , '400'));
+
+
+			if($mypost_thumbnail==''){
+				$mypost_thumbnail=get_stylesheet_directory_uri().'/img/news_default_big.png';
+			}
+
 
 			$output.='<li>'.
 						'<a class="post-image" href="'.$mypost_url.'">'.
@@ -141,7 +152,7 @@ function myposts_init(){
 						'</a>'.
 						'<a class="post-title" href="'.$mypost_url.'">'.$mypost_title.'</a>'.
 						'<time class="wp-block-latest-posts__post-date">'.$mypost_date.'</time>'.
-						'<a class="post-category" href="'.$mypost_category_url.'" target="_self">'.$mypost_category.'</a>'.
+						'<a class="post-category" href="'.$mypost_category_url.'" target="_self">'.$mypost_category_name.'</a>'.
 					'</li>';
 		}
 
@@ -152,6 +163,55 @@ function myposts_init(){
 	}
 }
 add_action('init', 'myposts_init');
+
+/********************
+パンくずリスト
+********************/
+function make_bread_nav_list($post){
+	// 親ページ	
+	$parent_id=$post->post_parent; // 親ページのIDを取得
+	$parent_slug=get_post($parent_id)->post_name; // 親ページのスラッグを取得
+	$parent_url=get_permalink($parent_id); // 親ページの URL を取得
+	$parent_title=get_post($parent_id)->post_title; // 親ページのタイトルを取得
+
+	// 現在ページ
+	$now_slug=get_post($post)->post_name;
+	$now_url=get_the_permalink($post);
+	$now_title=get_the_title($post);
+
+	//ホームページ
+	$home_url=get_home_url();
+
+	$parent_nav_list='';
+	if($parent_id){
+		$parent_nav_list=
+		'<li>'.
+			'<a href="'.$parent_url.'">'.$parent_title.'</a>'.
+		'</li>';
+	}
+
+	echo 
+	'<ul class="contact-path">'.
+		//ホーム
+		'<li>'.
+			'<a href="'.$home_url.'">Home</a>'.
+		'</li>'.
+		//第二層（もしあれば）
+		$parent_nav_list.
+		//第三層
+		'<li>'.
+			'<a href="'.$now_url.'">'.$now_title.'</a>'.
+		'</li>'.
+	'</ul>';
+}
+
+/********************
+投稿文章抜粋の[...]を削除
+********************/
+function new_excerpt_more($more) {
+	return '';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
 
 
 ?>

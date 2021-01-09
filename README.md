@@ -6,7 +6,7 @@
 |-----------|-----------|---------------------------------------------------|
 |Blue		|#4978BC	|`.has-blue-color`, `.has-blue-background-color`	|
 |Sky		|#EAF3FA	|`.has-sky-color`, `.has-sky-background-color`		|
-|Gray		|#EEEEEE	|`.has-gray-color`, `.has-gray-background-color`	|
+|Gray		|#595959	|`.has-gray-color`, `.has-gray-background-color`	|
 |Pink		|#F27179	|`.has-pink-color`, `.has-pink-background-color`	|
 |Rose		|#FDF4F5	|`.has-rose-color`, `.has-rose-background-color`	|
 |Black		|#262626	|`.has-black-color`, `.has-black-background-color`	|
