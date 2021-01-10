@@ -22,17 +22,31 @@
 		//カテゴリーリスト
 		$category_id=get_cat_ID('最新消息');
 		$cat=get_category($category_id);
+		$cat_slug=$cat->slug;
 		$cat_id=$cat->cat_ID;
 		$child_categories=get_categories(
 			array('parent' => $cat_id)
 		);
+
+		$parent_cat_count=0;
+		foreach($child_categories as $child){
+			$parent_cat_count+=$child->count;
+		}
 			
 		$categories_list_html='<ul class="wp-block-categories wp-block-categories-list margin60">';
+		$categories_list_html.=
+				'<li class="cat-item actived">'.
+					'<a href="javascript:;" data-count="'.$parent_cat_count.'" onclick="get_post_data(\''.$cat_slug.'\', this)">'.
+						'所有'.
+					'</a>'.
+				'</li>';
+
 		foreach($child_categories as $child){
+			// print_r($child);
 			$categories_list_html.=
 				'<li class="cat-item">'.
-					'<a>'.
-						$child ->cat_name.
+					'<a href="javascript:;" data-count="'.$child->count.'" onclick="get_post_data(\''.$child->slug.'\', this)">'.
+						$child->cat_name.
 					'</a>'.
 				'</li>';
 		}
@@ -41,53 +55,89 @@
 		echo $categories_list_html;
 
 	?>
+	
+	<h2 id="listTitle">所有</h2>
+	<ul id="listArea" class="wp-block-latest-posts wp-block-latest-posts__list has-dates"></ul>
+	<script>
+		var category_type='news';
+		var category_count=0;
+		var category_has_shown=0;
+		var is_end=false;
+		var is_loading=true;
+		var is_change_type=false;
+		var list_start=0;
+		var list_end=0;
 
-	<?php
-		// 投稿リスト
-		$args=array(
-			'posts_per_page' => -1,
-			'category_name' => 'news'
-		);
-		$posts=get_posts($args);
+		function get_post_data(type, ths){
+			//calculate start and end
+			is_change_type=false;
+			if(category_type!==type){
+				is_change_type=true;
+				category_has_shown=0;
+			}
+			list_start=category_has_shown+1;
 
-		$posts_list_html='<div class="wp-block-latest-posts wp-block-latest-posts__list has-dates">';
-		foreach($posts as $post){
+			//update var
+			category_type=type;
 
-			$post_ID=$post->ID;
-			$post_thumbnail=get_the_post_thumbnail_url($post_ID, array('260' , '150'));
-			$post_title=$post->post_title;
-			$post_url=get_the_permalink($post_ID);
-			$post_excerpt=get_the_excerpt($post_ID);
-			$post_date=explode(' ', $post->post_date)[0];
-			$post_category_name=get_the_category($post_ID)[0]->name;
-			$post_category_slug=get_the_category($post_ID)[0]->slug;
-			$post_category_url=get_site_url().'/news#'.$post_category_slug;
+			//loading
+			if(category_has_shown==0){
+				listArea.innerHTML='<i class="ai-loading-3-quarters news-list-loading" />';
+			}
+			is_loading=true;
 
-			if($post_thumbnail==''){
-				$post_thumbnail=get_stylesheet_directory_uri().'/img/news_default.png';
+			//active style
+			document.querySelector('.cat-item.actived').classList.remove('actived');
+			ths.parentNode.classList.add('actived');
+			listTitle.textContent=ths.textContent;
+
+			//make count
+			category_count=parseInt(ths.getAttribute('data-count'));
+			if(category_count-category_has_shown<3){
+				category_has_shown+=category_count-category_has_shown;
+				is_end=true;
+			}else{
+				category_has_shown+=3;
+				is_end=false;
 			}
 
-			$posts_list_html.=
-			'<li>'.
-				'<div class="wp-block-latest-posts__featured-image">'.
-					'<img src="'.$post_thumbnail.'" class="attachment-medium size-medium wp-post-image" loading="lazy" />'.
-				'</div>'.
-				'<div>'.
-					'<div>'.
-						'<a class="post-title" href="'.$post_url.'">'.$post_title.'</a>'.
-						'<div class="wp-block-latest-posts__post-excerpt">'.$post_excerpt.'</div>'.
-					'</div>'.
-					'<div class="post-content">'.
-						'<time>'.$post_date.'</time>'.
-						'<a class="post-category" href="'.$post_category_url.'" target="_self">'.$post_category_name.'</a>'.
-					'</div>'.
-				'</div>'.
-			'</li>';
-		}
-		$posts_list_html.='</div>';
-		echo $posts_list_html;
+			list_end=category_has_shown;
 
-	?>
+			//make ajax
+			var mailXhr=new XMLHttpRequest();
+			var admin_url="<?php echo admin_url('admin-ajax.php'); ?>";
+			mailXhr.open('POST', admin_url, true);
+			mailXhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			mailXhr.onreadystatechange=function(){
+				if(mailXhr.readyState==4 && mailXhr.status==200){
+					document.querySelector('.news-list-loading').remove();
+					var json=JSON.parse(mailXhr.responseText);
+					listArea.innerHTML+=json;
+					if(!is_end){
+						listArea.innerHTML+='<i class="ai-loading-3-quarters news-list-loading" />';
+					}
+					is_loading=false;
+				}
+			};
+			mailXhr.send("action=ajaxtest"+"&"+"type="+category_type+"&"+"count="+category_count+"&"+"start="+list_start+"&"+"end="+list_end);
+		}
+
+		get_post_data(category_type, document.querySelector('.cat-item a'));
+
+		//scroll to load new
+		window.addEventListener('scroll', function(){
+			var scroller=document.documentElement;
+			if(scroller.scrollTop==0){
+				scroller=document.body;
+			}
+			var scrollTop=scroller.scrollTop;
+			var scrollHeight=scroller.scrollHeight;
+			if(innerHeight+scrollTop==scrollHeight && !is_loading && !is_end){
+				get_post_data(category_type, document.querySelector('.cat-item.actived a'));
+			}
+		})
+		
+	</script>
 </main>
 
 
