@@ -22,3 +22,20 @@
 |中型		|20px			|`.has-medium-font-size`|
 |大型		|36px			|`.has-large-font-size`	|
 |特大型		|42px			|`.has-huge-font-size`	|
+
+## Flex Columns
+
+|Class Name							|Style Meaning			|
+|-----------------------------------|-----------------------|
+|`.wp-block-columns`				|`display: flex`		|
+|`.wp-block-column`					|-						|
+|`.are-vertically-aligned-center`	|`align-items: center`	|
+
+
+## Text Aligns
+
+|Class Name					|Style Meaning			|
+|---------------------------|-----------------------|
+|`.has-text-align-left`		|`text-align: left`		|
+|`.has-text-align-center`	|`text-align: center`	|
+|`.has-text-align-right`	|`text-align: right`	|

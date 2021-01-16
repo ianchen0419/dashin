@@ -140,7 +140,7 @@ function myposts_init(){
 
 
 			if($mypost_thumbnail==''){
-				$mypost_thumbnail=get_stylesheet_directory_uri().'/img/news_default_big.png';
+				$mypost_thumbnail=get_stylesheet_directory_uri().'/img/post_default_thumbnail.png';
 			}
 
 
@@ -192,16 +192,16 @@ function make_bread_nav_list($post){
 	}
 
 	echo 
-	'<ul class="contact-path">'.
+	'<ul class="contact-path has-gray-color">'.
 		//ホーム
 		'<li>'.
-			'<a href="'.$home_url.'">Home</a>'.
+			'<a class="has-gray-color" href="'.$home_url.'">Home</a>'.
 		'</li>'.
 		//第二層（もしあれば）
 		$parent_nav_list.
 		//第三層
 		'<li>'.
-			'<a href="'.$now_url.'">'.$now_title.'</a>'.
+			'<a class="has-gray-color" href="'.$now_url.'">'.$now_title.'</a>'.
 		'</li>'.
 	'</ul>';
 }
@@ -242,20 +242,22 @@ function news_list_page_html($type, $count, $start, $end){
 		$post_category_url=get_site_url().'/news#'.$post_category_slug;
 
 		if($post_thumbnail==''){
-			$post_thumbnail=get_stylesheet_directory_uri().'/img/news_default.png';
+			$post_thumbnail=get_stylesheet_directory_uri().'/img/post_default_medium.png';
 		}
 
 		$posts_list_html.=
 		'<li class="showing">'.
 			'<div class="wp-block-latest-posts__featured-image">'.
-				'<img src="'.$post_thumbnail.'" class="attachment-medium size-medium wp-post-image" loading="lazy" />'.
+				'<a href="'.$post_url.'">'.
+					'<img src="'.$post_thumbnail.'" class="attachment-medium size-medium wp-post-image" loading="lazy" />'.
+				'</a>'.
 			'</div>'.
-			'<div>'.
+			'<div class="post-content">'.
 				'<div>'.
 					'<a class="post-title" href="'.$post_url.'">'.$post_title.'</a>'.
 					'<div class="wp-block-latest-posts__post-excerpt">'.$post_excerpt.'</div>'.
 				'</div>'.
-				'<div class="post-content">'.
+				'<div>'.
 					'<time>'.$post_date.'</time>'.
 					'<div class="post-category">'.$post_category_name.'</div>'.
 				'</div>'.
@@ -280,6 +282,7 @@ function ajaxTestFunc(){
 
 add_action('wp_ajax_ajaxtest', 'ajaxTestFunc');
 add_action('wp_ajax_nopriv_ajaxtest', 'ajaxTestFunc');
+
 
 
 ?>

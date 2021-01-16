@@ -1,3 +1,7 @@
+body .editor-styles-wrapper {
+	color: #262626;
+}
+
 /*InspectorControls 自作マージンコントロール*/
 .margin0 {
 	margin-bottom: 0 !important;
@@ -42,6 +46,20 @@
 	font-size: 24px;
 	margin-left: 20px;
 	vertical-align: middle;
+}
+
+.wp-block-button.is-style-simple .wp-block-button__link {
+	background: #fff;
+	color: #595959;
+	border: 1px solid #E8E8E8;
+	font-size: inherit;
+	padding: 4px 10px 4px 16px;
+}
+
+.wp-block-button.is-style-simple .wp-block-button__link:after {
+	color: #595959;
+	margin-left: 0px;
+	font-size: 18px;
 }
 
 /*Toppage Gallery*/
@@ -156,4 +174,65 @@ body table.wp-block-advgb-table thead td {
 
 .wp-block-advgb-table thead tr:last-child td {
 	border-bottom: inherit;
+}
+
+/*Image*/
+.wp-block-image.is-style-shadow {
+	position: relative;
+}
+
+.wp-block-image.is-style-shadow:before {
+	content: '';
+	background: #EAF3FA;
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: absolute;
+	top: 20px;
+	left: -20px;
+}
+
+/*Column*/
+.wp-block-column.is-style-card {
+	border: 1px solid #E8E8E8;
+	border-radius: 10px;
+}
+
+/*Heading*/
+body .editor-styles-wrapper h2 {
+	color: #4978BC;
+}
+
+body .editor-styles-wrapper h3 {
+	color: #F27179;
+}
+
+/*Table*/
+.wp-block-table table {
+	border-collapse: collapse;
+}
+
+.wp-block-table td {
+	padding: 24px 18px;
+}
+
+.wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
+	background: #EAF3FA;
+}
+
+.wp-block-table.is-style-stripes td, .wp-block-table.is-style-stripes th {
+	border: 1px solid #4978BC;
+}
+
+/*Paragraph*/
+.is-style-ellipsis {
+	display: -webkit-box;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+
+.is-style-ellipsis.is-selected {
+	display: block;
 }

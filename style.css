@@ -38,6 +38,15 @@ main > *:not(.alignright):not(.alignleft):not(.is-style-slider):not(.alignfull),
 	}
 }
 
+/*single content*/
+.single-wrapper {
+	max-width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
 .alignfull {
 	width: 100%;
 	max-width: none;
@@ -64,6 +73,71 @@ main > *:not(.alignright):not(.alignleft):not(.is-style-slider):not(.alignfull),
 	.alignright {
 		margin-right: 20px;
 	}
+}
+
+/********************
+Single
+********************/
+.single-contact {
+	position: relative;
+	overflow: hidden;
+}
+
+.single-bg {
+	position: relative;
+	margin-bottom: 150px;
+}
+
+.single-bg:before {
+	content: '';
+	width: 100%;
+	height: calc(100% - 200px);
+	display: block;
+	background: #EAF3FA;
+	position: absolute;
+	z-index: -1;
+	top: 250px;
+}
+
+.single-contact:before {
+	content: '';
+	width: 100vw;
+	height: 100%;
+	display: block;
+	background: url('img/dna.png');
+	position: absolute;
+	top: 0;
+	background-size: contain;
+	pointer-events: none;
+}
+
+.single-panel {
+	position: relative;
+	background: #fff;
+	box-shadow: 0px 0px 1px rgba(48, 49, 51, 0.05), 0px 16px 24px rgba(48, 49, 51, 0.1);
+	margin-bottom: 30px;
+	margin-top: 30px;
+}
+
+.single-panel-body {
+	padding: 30px;
+}
+
+.single-info {
+	display: flex;
+}
+
+.single-info-item {
+	margin-right: 10px;
+}
+
+.single-info-item i {
+	margin-right: 4px;
+}
+
+.single-relates {
+	position: relative;
+	margin-bottom: 60px;
 }
 
 /********************
@@ -225,10 +299,6 @@ body.loading-body #footerInfo {
 	opacity: 0;
 }
 
-#footerMenu {
-	margin-top: 60px;
-}
-
 #contact, #footerMenu, #footerInfo {
 	transition: 0.3s opacity;
 }
@@ -256,6 +326,11 @@ Layout
 ********************/
 #contact {
 	min-height: calc(100vh - 563px);
+	margin-bottom: 60px;
+}
+
+#contact.single-contact {
+	margin-bottom: 0;
 }
 
 /********************
@@ -274,12 +349,12 @@ Contact Path
 
 .contact-path li a {
 	text-decoration: none;
-	color: #595959;
+	color: currentColor;
 }
 
 .contact-path li+li:before {
 	content: '/';
-	color: #595959;
+	color: currentColor;
 	margin-right: 10px;
 	margin-left: 10px;
 }
@@ -336,6 +411,7 @@ body:before {
 	color: currentColor;
 	margin: 0 12px;
 	cursor: pointer;
+	transition: color 0.3s, opacity 0.3s;
 }
 
 #menu-header > li > a:hover,
@@ -388,6 +464,7 @@ body:before {
 	box-sizing: border-box;
 	cursor: pointer;
 	transition: background 0.3s, opacity 0.3s;
+	color: #262626;
 }
 
 #menu-header .sub-menu li a:hover {
@@ -657,6 +734,88 @@ Visual
 	justify-content: center;
 }
 
+.full-visual {
+	height: calc(100vh - 320px);
+}
+
+.full-visual .image-item img {
+	width: 100vw;
+	min-height: 100vh;
+	object-fit: cover;
+	position: absolute;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.full-visual .image-item {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	overflow: hidden;
+	pointer-events: none;
+	height: 100%;
+}
+
+.full-visual .image-item:before {
+	content: '';
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(116.52deg, #000000 0%, rgba(0, 0, 0, 0) 100.93%), url(img/dna_o.png);
+	display: block;
+	position: absolute;
+	z-index: 2;
+}
+
+.full-visual .full-visual-content {
+	margin-top: 200px;
+}
+
+.full-visual .full-visual-items {
+	display: inline-flex;
+	flex-direction: column;
+}
+
+.full-visual .full-visual-item {
+	text-decoration: none;
+	display: block;
+	padding: 10px 0;
+	width: 160px;
+	cursor: pointer;
+}
+
+.full-visual .full-visual-item:before {
+	content: '\e604';
+	font-family: anticons-desktop;
+	padding-right: 30px;
+	opacity: 0;
+}
+
+.full-visual .full-visual-items:hover .full-visual-item.actived:before {
+	opacity: 0;
+}
+
+.full-visual .full-visual-items:hover .full-visual-item:hover:before {
+	opacity: 1;
+}
+
+.full-visual .full-visual-item.actived:before {
+	opacity: 1;
+}
+
+.full-visual .full-visual-item.actived ~ .image-item img:nth-child(1),
+.full-visual .full-visual-items:hover .full-visual-item:nth-child(1):hover ~ .image-item img:nth-child(1),
+.full-visual .full-visual-items:hover .full-visual-item:nth-child(2):hover ~ .image-item img:nth-child(2),
+.full-visual .full-visual-items:hover .full-visual-item:nth-child(3):hover ~ .image-item img:nth-child(3) {
+	z-index: 1;
+	opacity: 1;
+}
+
+.full-visual .full-visual-items:hover .image-item img:nth-child(1){
+	z-index: 0;
+}
+
 /********************
 Cover
 ********************/
@@ -796,6 +955,12 @@ Heading
 ********************/
 h2 {
 	font-size: 2em;
+	color: #4978BC;
+}
+
+h3 {
+	font-size: 1.5em;
+	color: #F27179;
 }
 
 /********************
@@ -833,6 +998,21 @@ Buttons
 	padding: 4px;
 	font-size: 24px;
 	margin-left: 20px;
+}
+
+/*simple*/
+.wp-block-button.is-style-simple .wp-block-button__link {
+	background: #fff;
+	color: #595959;
+	border: 1px solid #E8E8E8;
+	font-size: inherit;
+	padding: 4px 10px 4px 16px;
+}
+
+.wp-block-button.is-style-simple .wp-block-button__link:after {
+	color: #595959;
+	margin-left: 0px;
+	font-size: 18px;
 }
 
 /********************
@@ -1036,6 +1216,22 @@ body table.advgb-table-frontend thead th {
 	border-radius: 10px 10px 0 0;
 }
 
+.wp-block-table table {
+	border-collapse: collapse;
+}
+
+.wp-block-table td {
+	padding: 24px 18px;
+}
+
+.wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
+	background: #EAF3FA;
+}
+
+.wp-block-table.is-style-stripes td, .wp-block-table.is-style-stripes th {
+	border: 1px solid #4978BC;
+}
+
 /********************
 Categories
 ********************/
@@ -1065,6 +1261,72 @@ Categories
 
 .wp-block-categories li.actived a {
 	color: #4978BC;
+}
+
+/********************
+Advanced Gutenberg Slider
+********************/
+.slick-prev, .slick-next {
+	display: none !important;
+}
+
+/********************
+Image Block
+********************/
+.wp-block-image img {
+	height: auto;
+}
+
+.wp-block-image.is-style-shadow {
+	position: relative;
+}
+
+.wp-block-image.is-style-shadow:before {
+	content: '';
+	background: #EAF3FA;
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: absolute;
+	z-index: -1;
+	top: 50px;
+	left: -50px;
+}
+
+/********************
+List Block
+********************/
+ol, ul {
+	padding-left: 20px;
+}
+
+/********************
+Gallery Block
+********************/
+body #colorbox.advgb_lightbox #cboxLoadedContent {
+	padding: 0;
+	border: none;
+}
+
+/********************
+Column Block
+********************/
+.wp-block-column.is-style-card {
+	border: 1px solid #E8E8E8;
+	border-radius: 10px;
+	padding: 24px;
+	box-sizing: border-box;
+}
+
+/********************
+Paragraph Block
+********************/
+p.is-style-ellipsis {
+	display: -webkit-box;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
 }
 
 /********************

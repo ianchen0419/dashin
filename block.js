@@ -54,6 +54,37 @@ wp.blocks.registerBlockStyle(
 	}
 )
 
+//画像 水色の影
+wp.blocks.registerBlockStyle(
+	'core/image', {
+		name: 'shadow',
+		label: '陰影'
+	}
+)
+
+//ボタン　素朴なボタン
+wp.blocks.registerBlockStyle(
+	'core/button', {
+		name: 'simple',
+		label: '簡單'
+	}
+)
+
+//カラム　カード式
+wp.blocks.registerBlockStyle(
+	'core/column', {
+		name: 'card',
+		label: '卡片',
+	}
+)
+
+//段落　3行以上「...」
+wp.blocks.registerBlockStyle(
+	'core/paragraph', {
+		name: 'ellipsis',
+		label: '超過三行加刪節號',
+	}
+)
 
 // 上下マージン設定
 var withInspectorControls = wp.compose.createHigherOrderComponent(function(BlockEdit) {

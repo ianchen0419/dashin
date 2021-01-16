@@ -1,3 +1,4 @@
+<?php /* Template Name: relates */ ?>
 <?php get_header();?>
 
 <div id="visual">
@@ -17,6 +18,5 @@
 		endwhile;
 	?>
 </main>
-
 
 <?php get_footer();?>

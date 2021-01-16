@@ -3,7 +3,7 @@
 
 <div id="visual">
 	<div class="page-title">
-		<img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php echo the_title(); ?>" height="100%" />
+		<img src="<?php echo get_stylesheet_directory_uri().'/img/title.png' ?>" height="100%" />
 		<div class="wrapper-size">
 			<h1 class="has-large-font-size has-blue-color has-text-align-center"><?php the_title(); ?></h1>
 		</div>
@@ -93,11 +93,11 @@
 
 			//make count
 			category_count=parseInt(ths.getAttribute('data-count'));
-			if(category_count-category_has_shown<3){
+			if(category_count-category_has_shown<10){
 				category_has_shown+=category_count-category_has_shown;
 				is_end=true;
 			}else{
-				category_has_shown+=3;
+				category_has_shown+=10;
 				is_end=false;
 			}
 
@@ -132,7 +132,7 @@
 			}
 			var scrollTop=scroller.scrollTop;
 			var scrollHeight=scroller.scrollHeight;
-			if(innerHeight+scrollTop==scrollHeight && !is_loading && !is_end){
+			if(innerHeight+scrollTop>=scrollHeight-footerMenu.clientHeight-footerInfo.clientHeight && !is_loading && !is_end){
 				get_post_data(category_type, document.querySelector('.cat-item.actived a'));
 			}
 		})

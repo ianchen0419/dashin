@@ -20,7 +20,7 @@
 			<circle cx="50" cy="50" fill="none" stroke="#4978BC" stroke-width="10" r="35" stroke-dasharray="165 57"></circle>
 		</svg>
 	</section>
-	<header id="header">
+	<header id="header" class="has-black-color">
 		<table width="100%">
 			<tr>
 				<td align="left">
@@ -28,7 +28,7 @@
 					<h1 hidden>大新生殖中心|婦產科診所</h1>
 				</td>
 				<td align="right">
-					<nav class="has-black-color">
+					<nav>
 						<?php wp_nav_menu(array('theme_location' => 'header')); ?>
 					</nav>
 				</td>
