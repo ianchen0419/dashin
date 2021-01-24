@@ -236,7 +236,7 @@ function news_list_page_html($type, $count, $start, $end){
 		$post_title=$posts[$i-1]->post_title;
 		$post_url=get_the_permalink($post_ID);
 		$post_excerpt=get_the_excerpt($post_ID);
-		$post_date=explode(' ', $posts[$i]->post_date)[0];
+		$post_date=explode(' ', $posts[$i-1]->post_date)[0];
 		$post_category_name=get_the_category($post_ID)[0]->name;
 		$post_category_slug=get_the_category($post_ID)[0]->slug;
 		$post_category_url=get_site_url().'/news#'.$post_category_slug;
@@ -270,7 +270,7 @@ function news_list_page_html($type, $count, $start, $end){
 /********************
 ニュース一覧ajaxデータ取得
 ********************/
-function ajaxTestFunc(){
+function getNewsPostFunc(){
 	$post_type=$_POST['type'];
 	$post_count=$_POST['count'];
 	$post_start=$_POST['start'];
@@ -280,9 +280,88 @@ function ajaxTestFunc(){
 	wp_die();
 }
 
-add_action('wp_ajax_ajaxtest', 'ajaxTestFunc');
-add_action('wp_ajax_nopriv_ajaxtest', 'ajaxTestFunc');
+add_action('wp_ajax_getnewspost', 'getNewsPostFunc');
+add_action('wp_ajax_nopriv_getnewspost', 'getNewsPostFunc');
 
 
+/********************
+成功事例一覧HTMLテンプレート
+********************/
+// function success_list_page_html($type, $count, $start, $end){
+function success_list_page_html($start, $end){
+
+	$category=get_category_by_slug('success');
+	
+	$args=array(
+		'posts_per_page'	=> -1,
+		'category'			=> $category->cat_ID,
+	);
+
+	$posts=get_posts($args);
+	$posts_length=count($posts);
+	if($end>$posts_length){
+		$end=$posts_length;
+	}
+
+	$posts_list_html='';
+
+
+	for($i=$start;$i<=$end;$i++){
+
+		$post_ID=$posts[$i-1]->ID;
+		$post_url=$posts[$i-1]->guid;
+		$post_thumbnail=get_the_post_thumbnail_url($post_ID, array('380' , '400'));
+		$post_title=$posts[$i-1]->post_title;
+		$post_date=$posts[$i-1]->post_date;
+
+		if($post_thumbnail==''){
+			$post_thumbnail=get_stylesheet_directory_uri().'/img/post_default_thumbnail.png';
+		}
+
+
+		if($index%3==0){
+			$html.='<div class="wp-block-latest-posts wp-block-latest-posts__list is-grid columns-3 has-dates">';
+		}
+
+			$html.=
+				'<li>'.
+					'<a class="post-image" href="'.$post_url.'">'.
+						'<div class="wp-block-latest-posts__featured-image" >'.
+							'<img width="150" height="150" src="'.$post_thumbnail.'" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" loading="lazy" />'.
+						'</div>'.
+					'</a>'.
+					'<a class="post-title" href="'.$post_url.'">'.$post_title.'</a>'.
+					'<time class="wp-block-latest-posts__post-date">'.$post_date.'</time>'.
+				'</li>';
+
+		if($index%3==2){
+			$html.='</div>';
+		}
+
+		$index++;
+	}
+	return $html;
+}
+
+/********************
+成功事例一覧ajaxデータ取得
+********************/
+function getSuccessPostFunc(){
+	// $post_type=$_POST['type'];
+	// $post_count=$_POST['count'];
+	$post_start=$_POST['start'];
+	$post_end=$_POST['end'];
+
+	wp_send_json(success_list_page_html($post_start, $post_end));
+	wp_die();
+}
+
+add_action('wp_ajax_getsuccesspost', 'getSuccessPostFunc');
+add_action('wp_ajax_nopriv_getsuccesspost', 'getSuccessPostFunc');
+
+/********************
+EmbedブロックのRWD
+********************/
+add_theme_support('responsive-embeds');
 
 ?>

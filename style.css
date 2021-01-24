@@ -32,6 +32,10 @@ main > *:not(.alignright):not(.alignleft):not(.is-style-slider):not(.alignfull),
 	margin-left: auto;
 }
 
+.wp-block-latest-posts.is-grid+.wp-block-latest-posts.is-grid {
+	margin-top: 80px;
+}
+
 @media screen and (max-width: 768px) {
 	main > *:not(.alignright):not(.alignleft):not(.is-style-slider) {
 		width: calc(100% - 40px);
@@ -63,6 +67,14 @@ main > *:not(.alignright):not(.alignleft):not(.is-style-slider):not(.alignfull),
 .aligncenter {
 	margin-right: auto;
 	margin-left: auto;
+}
+
+.aligncenter.wp-block-embed {
+	text-align: center;
+}
+
+.alignright.wp-block-embed {
+	text-align: right;
 }
 
 @media(max-width: 1140px) {
@@ -149,6 +161,12 @@ a {
 
 a:hover {
 	opacity: 0.8;
+}
+
+body {
+	animation: showing 1s;
+	animation-fill-mode: forwards;
+	opacity: 0;
 }
 
 @keyframes menu-up {
@@ -735,7 +753,7 @@ Visual
 }
 
 .full-visual {
-	height: calc(100vh - 320px);
+	height: calc(100vh - 280px);
 }
 
 .full-visual .image-item img {
@@ -831,6 +849,8 @@ Cover
 .wp-block-cover-image .wp-block-cover__inner-container, 
 .wp-block-cover .wp-block-cover__inner-container {
 	width: auto;
+	padding-right: 32px;
+	padding-left: 23px;
 }
 
 .wp-block-group.is-style-slider {
@@ -956,6 +976,14 @@ Heading
 h2 {
 	font-size: 2em;
 	color: #4978BC;
+}
+
+main > .contact-path+h2, main > .wp-block-categories+h2 {
+	margin-top: inherit;
+}
+
+main > h2 {
+	margin-top: 3em;
 }
 
 h3 {
@@ -1142,7 +1170,7 @@ Media and Text
 	flex-direction: column;
 	justify-content: center;
 	position: relative;
-	top: 80px;
+	top: 50px;
 	box-shadow: 0px 16px 24px 0px rgba(48, 49, 51, 0.1), 0px 0px 1px 0px rgba(48, 49, 51, 0.05);
 }
 
@@ -1206,8 +1234,8 @@ Media and Text
 /********************
 Table
 ********************/
-body table.advgb-table-frontend td, body table.advgb-table-frontend tr {
-	border: 1px solid #EEEEEE;
+body table.advgb-table-frontend {
+	border-collapse: collapse;
 }
 
 body table.advgb-table-frontend thead th {
@@ -1216,20 +1244,35 @@ body table.advgb-table-frontend thead th {
 	border-radius: 10px 10px 0 0;
 }
 
+.wp-block-column .wp-block-table {
+	margin-right: 0;
+	margin-left: 0;
+}
+
 .wp-block-table table {
 	border-collapse: collapse;
 }
 
-.wp-block-table td {
+.wp-block-table td, .wp-block-table th {
 	padding: 24px 18px;
 }
 
-.wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
+.wp-block-table.is-style-stripes tbody tr:nth-child(odd),
+body .wp-block-advgb-table.is-style-stripes tbody tr:nth-child(odd) {
 	background: #EAF3FA;
 }
 
-.wp-block-table.is-style-stripes td, .wp-block-table.is-style-stripes th {
+.wp-block-table.is-style-stripes td, .wp-block-table.is-style-stripes th,
+body table.advgb-table-frontend td, body table.advgb-table-frontend tr {
 	border: 1px solid #4978BC;
+}
+
+.wp-block-table.is-style-regular td, .wp-block-table.is-style-regular th {
+	border: 1px solid #F27179;
+}
+
+.wp-block-table.is-style-regular th {
+	background: #FDF4F5;
 }
 
 /********************
@@ -1293,10 +1336,17 @@ Image Block
 	left: -50px;
 }
 
+.wp-block-image figcaption,
+.wp-block-embed figcaption {
+	color: #595959;
+	font-size: small;
+	text-align: center;
+}
+
 /********************
 List Block
 ********************/
-ol, ul {
+.wp-block-columns ol, .wp-block-columns ul {
 	padding-left: 20px;
 }
 
@@ -1311,11 +1361,56 @@ body #colorbox.advgb_lightbox #cboxLoadedContent {
 /********************
 Column Block
 ********************/
-.wp-block-column.is-style-card {
+.wp-block-column.is-style-card,
+.relates-slide {
 	border: 1px solid #E8E8E8;
 	border-radius: 10px;
 	padding: 24px;
 	box-sizing: border-box;
+	text-decoration: none;
+	color: inherit;
+}
+
+/********************
+Relates
+********************/
+.relates-slide-area {
+	position: relative;
+}
+
+.relates-slide-wrapper {
+	overflow: hidden;
+	scroll-behavior: smooth;
+	/*position: relative;*/
+	/*scroll-snap-type: x mandatory;*/
+}
+
+.relates-slide {
+	flex-shrink: 0;
+	flex-basis: 200px;
+	/*scroll-snap-align: start;*/
+}
+
+.relates-slide-icon-left,
+.relates-slide-icon-right {
+	font-size: 32px;
+	color: #595959;
+	margin: 0 10px;
+	cursor: pointer;
+	transition: opacity 0.3s, color 0.3s;
+}
+
+.relates-slide-icon-left:hover, 
+.relates-slide-icon-right:hover {
+	opacity: 0.8;
+}
+
+.relates-slide-icon-left {
+	left: -35px;
+}
+
+.relates-slide-icon-right {
+	right: -35px;
 }
 
 /********************
@@ -1329,6 +1424,72 @@ p.is-style-ellipsis {
 	-webkit-box-orient: vertical;
 }
 
+p a, li a, h3 a {
+	color: #4978BC;
+}
+
+/********************
+Accordion Block
+********************/
+.wp-block-advgb-accordions {
+	box-shadow: 0px 0px 1px rgba(48, 49, 51, 0.05), 0px 16px 24px rgba(48, 49, 51, 0.1);
+}
+
+body .advgb-accordion-header, body .advgb-accordion-header.ui-accordion-header.ui-state-default {
+	padding: 24px 16px;
+	border-color: transparent;
+	margin-top: 0;
+}
+
+.wp-block-advgb-accordion-item + .wp-block-advgb-accordion-item  {
+	border-top: 1px solid #E8E8E8;
+}
+
+body .advgb-accordion-body, body .advgb-accordion-wrapper .advgb-accordion-body.ui-widget-content {
+	border-color: transparent;
+	margin-bottom: 0;
+}
+
+body .advgb-accordion-header-icon {
+	margin-right: 0;
+}
+
+body .advgb-accordion-header[aria-expanded="true"] .advgb-accordion-header-icon {
+	display: block;
+}
+
+body .advgb-accordion-header[aria-expanded="true"] .advgb-accordion-header-icon svg {
+	transform: rotate(180deg);
+}
+
+.advgb-accordion-header[aria-expanded="true"],
+.advgb-accordion-header[aria-expanded="true"] + .advgb-accordion-body  {
+	background: #FDF4F5 !important;
+}
+
+/********************
+Form
+********************/
+.wp-block-jetpack-contact-form input[type='text'], 
+.wp-block-jetpack-contact-form input[type='email'], 
+.wp-block-jetpack-contact-form input[type='tel'], 
+.wp-block-jetpack-contact-form input[type='url'],
+.contact-form textarea {
+	padding: 12px;
+	border: 1px solid #EDEDED;
+}
+
+textarea {
+	font-family: 'Noto Sans TC', sans-serif;
+}
+
+/********************
+Youtube Embed
+********************/
+main > .wp-block-embed-youtube iframe {
+	width: 1000px;
+	height: 562px;
+}
 /********************
 InspectorControls 自作マージンコントロール
 ********************/

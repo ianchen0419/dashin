@@ -34,6 +34,7 @@ table.is-style-clinical-hours.advgb-table-frontend td[style*='#5b8c00']:first-li
 	font-size: 16px;
 }
 
-body .wp-block-advgb-table td, .wp-block-advgb-table tr {
+body .wp-block-advgb-table td, .wp-block-advgb-table tr,
+.wp-block-table td, .wp-block-table th {
 	padding: 0.3em;
 }

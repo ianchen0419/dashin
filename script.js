@@ -119,3 +119,16 @@ function showMenu(ths){
 
 	document.body.classList.toggle('menu-open');
 }
+
+/********************
+Relates Slide
+********************/
+function relatesToLeft(){
+	var relateSlideWrapper=document.querySelector('.relates-slide-wrapper');
+	relateSlideWrapper.scrollLeft-=230;
+}
+
+function relatesToRight(){
+	var relateSlideWrapper=document.querySelector('.relates-slide-wrapper');
+	relateSlideWrapper.scrollLeft+=230;
+}

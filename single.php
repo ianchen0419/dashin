@@ -103,11 +103,10 @@
 
 				$args=array(
 					'category__in'=>wp_get_post_categories($post->ID), 
-					'numberposts'=>5,
+					'numberposts'=>3,
 					'post__not_in'=>array($post->ID)
 				);
 				$posts=get_posts($args);
-				// print_r($posts[0]->post_title);
 
 				foreach($posts as $post){
 					$post_ID=$post->ID;
@@ -124,7 +123,7 @@
 					echo 
 					'<li>'.
 						'<a class="post-image" href="'.$post_url.'">'.
-							'<div class="wp-block-latest-posts__featured-image" >'.
+							'<div class="wp-block-latest-posts__featured-image">'.
 								'<img width="150" height="150" src="'.$post_thumbnail.'" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" loading="lazy" />'.
 							'</div>'.
 						'</a>'.
