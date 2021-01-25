@@ -1,18 +1,20 @@
-var el = wp.element.createElement;
-var InnerBlocks = wp.blockEditor.InnerBlocks;
+var el=wp.element.createElement;
+var InnerBlocks=wp.blockEditor.InnerBlocks;
 
 var PluginDocumentSettingPanel = wp.editPost.PluginDocumentSettingPanel;
 var TextControl=wp.components.TextControl;
+var ToggleControl=wp.components.ToggleControl;
 var select=wp.data.select;
 var dispatch=wp.data.dispatch;
+var withState=wp.compose.withState;
 var withSelect=wp.data.withSelect;
 
 var useSelect=wp.data.useSelect;
 var useEntityProp=wp.coreData.useEntityProp;
 
-var InspectorControls = wp.blockEditor.InspectorControls;
-var PanelBody = wp.components.PanelBody;
-var PanelRow = wp.components.PanelRow;
+var InspectorControls=wp.blockEditor.InspectorControls;
+var PanelBody=wp.components.PanelBody;
+var PanelRow=wp.components.PanelRow;
 var BaseControl=wp.components.BaseControl;
 var RadioControl=wp.components.RadioControl;
 var ToggleControl=wp.components.ToggleControl;
@@ -203,3 +205,39 @@ function addAttribute(settings) {
 	return settings;
 }
 wp.hooks.addFilter('blocks.registerBlockType', 'my-plugin/add-attr', addAttribute);
+
+//ローディングモーション
+wp.plugins.registerPlugin(
+	'dashin', 
+	{
+		render: 
+		withSelect
+		(function(select) {
+			return { heyhey: select('core/editor').getEditedPostAttribute('meta')['loading'] };
+		})
+		(function(props){
+			return el(
+				PluginDocumentSettingPanel,
+				{
+					className: '',
+					title: '載入動畫',
+				},
+				'',
+				el(
+					ToggleControl,
+					{
+						checked: select('core/editor').getEditedPostAttribute('meta')['loading'],
+						label: '啟用載入動畫',
+						onChange: function(res){
+							dispatch('core/editor').editPost({
+								meta: { 'loading': res },
+							});
+						}
+					},
+					)
+				)
+		}),
+
+		icon: '',
+	}
+);

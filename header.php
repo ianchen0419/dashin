@@ -13,6 +13,18 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+	<script>
+
+		<?php
+			$need_loading=get_post_meta($post->ID, 'loading', true);
+			if($need_loading==true){
+				echo 'var needLoading=true';
+			}else{
+				echo 'var needLoading=false';
+			}
+		?>
+	</script>
+
 	<script src="<?php bloginfo('template_directory') ?>/loading.js"></script>
 	<?php wp_body_open(); ?>
 	<section id="loading">

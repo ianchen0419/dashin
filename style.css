@@ -1254,7 +1254,7 @@ body table.advgb-table-frontend thead th {
 }
 
 .wp-block-table td, .wp-block-table th {
-	padding: 24px 18px;
+	padding: 8px;
 }
 
 .wp-block-table.is-style-stripes tbody tr:nth-child(odd),
@@ -1491,7 +1491,7 @@ main > .wp-block-embed-youtube iframe {
 	height: 562px;
 }
 /********************
-InspectorControls 自作マージンコントロール
+InspectorControls è‡ªä½œãƒžãƒ¼ã‚¸ãƒ³ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«
 ********************/
 .margin0 {
 	margin-bottom: 0 !important;

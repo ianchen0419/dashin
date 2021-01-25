@@ -364,4 +364,17 @@ EmbedブロックのRWD
 ********************/
 add_theme_support('responsive-embeds');
 
+/********************
+独自メタデータ登録
+********************/
+function myguten_register_post_meta() {
+	register_post_meta('page', 'loading', array(
+		'show_in_rest' => true,
+		'single' => true,
+		'type' => 'boolean',
+		)
+	);
+}
+add_action('init', 'myguten_register_post_meta');
+
 ?>
