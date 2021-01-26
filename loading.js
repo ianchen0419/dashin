@@ -1,5 +1,3 @@
-var loadingBar=document.querySelector('#loadingBar');
-
 function addLoadingMotion(){
 	if(!localStorage['firstAccess']　|| needLoading==true){
 		document.body.classList.add('loading-body');
