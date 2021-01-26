@@ -258,18 +258,21 @@ body {
 	}
 }
 
-#loading circle {
-	animation: rotate 1s linear infinite;
-	transform-origin: 50% 50%;
+#loading #loadingBar{
+	transition: 0.3s;
 }
 
-@keyframes rotate {
+#loading #loadingBar {
+	animation: run 0.7s linear infinite;
+}
+
+@keyframes run {
 	0% {
-		transform: rotate(0deg);
+		stroke-dashoffset: 0;
 	}
 
 	100% {
-		transform: rotate(360deg);
+		stroke-dashoffset: -159;
 	}
 }
 
@@ -336,7 +339,6 @@ body.loading-body #loading {
 
 body.loading-body #loading svg {
 	width: 150px;
-	height: 150px;
 }
 
 /********************
