@@ -258,18 +258,21 @@ body {
 	}
 }
 
-#loading circle {
-	animation: rotate 1s linear infinite;
-	transform-origin: 50% 50%;
+#loading #loadingBar{
+	transition: 0.3s;
 }
 
-@keyframes rotate {
+#loading #loadingBar {
+	animation: run 0.7s linear infinite;
+}
+
+@keyframes run {
 	0% {
-		transform: rotate(0deg);
+		stroke-dashoffset: 0;
 	}
 
 	100% {
-		transform: rotate(360deg);
+		stroke-dashoffset: -159;
 	}
 }
 
@@ -336,7 +339,6 @@ body.loading-body #loading {
 
 body.loading-body #loading svg {
 	width: 150px;
-	height: 150px;
 }
 
 /********************
@@ -1254,7 +1256,7 @@ body table.advgb-table-frontend thead th {
 }
 
 .wp-block-table td, .wp-block-table th {
-	padding: 8px;
+	padding: 24px 18px;
 }
 
 .wp-block-table.is-style-stripes tbody tr:nth-child(odd),
@@ -1491,7 +1493,7 @@ main > .wp-block-embed-youtube iframe {
 	height: 562px;
 }
 /********************
-InspectorControls è‡ªä½œãƒžãƒ¼ã‚¸ãƒ³ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«
+InspectorControls 自作マージンコントロール
 ********************/
 .margin0 {
 	margin-bottom: 0 !important;
