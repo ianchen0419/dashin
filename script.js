@@ -3,7 +3,7 @@ Scroll Motion
 ********************/
 window.addEventListener('scroll', checkBlock);
 function checkBlock(){
-	var motionBlocks=document.querySelectorAll('.wp-block-media-text[class*="sticky"], .wp-block-latest-posts.is-grid');
+	var motionBlocks=document.querySelectorAll('.wp-block-media-text[class*="sticky"], .wp-block-latest-posts.is-grid, .wp-block-columns');
 	for(i=0;i<motionBlocks.length;i++){
 		var itemOffsetTop=motionBlocks[i].offsetTop;
 		if(motionBlocks[i].parentNode.id!=='contact'){
@@ -15,9 +15,10 @@ function checkBlock(){
 		var isNotScrolledPast = window.scrollY < itemBottom;
 		if (isHalfShown && isNotScrolledPast) {
 			motionBlocks[i].classList.add('wp-motion');
-		} else {
-			motionBlocks[i].classList.remove('wp-motion');
 		}
+		//  else {
+		// 	motionBlocks[i].classList.remove('wp-motion');
+		// }
 	}
 	
 }

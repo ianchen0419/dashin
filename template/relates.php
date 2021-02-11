@@ -24,7 +24,6 @@
 
 	<?php
 
-
 		$parent_ID=$post->post_parent;
 
 		$my_getposts=get_pages(array(
@@ -32,8 +31,6 @@
 			'sort_column' 	=> 	'post_date',
 			'exclude'		=>	$post->ID,
 		));
-
-		// $html='';
 
 		$html.=
 			'<div class="relates-slide-area">'.
@@ -61,13 +58,17 @@
 						'</a>';
 				}
 
-		$html.=
-					'</div>'.
+		$nav_html='';
+		if(count($my_getposts)>4){
+			$nav_html=
+			'</div>'.
 				'<div class="has-text-align-center">'.
 					'<i class="ai-left-circle-o relates-slide-icon-left" onclick="relatesToLeft()"></i>'.
 					'<i class="ai-right-circle-o relates-slide-icon-right" onclick="relatesToRight()"></i>'.
 				'</div>'.
 			'</div>';
+		}
+		$html.=$nav_html;
 
 		echo $html;
 
