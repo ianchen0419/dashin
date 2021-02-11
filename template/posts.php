@@ -1,4 +1,4 @@
-<?php /* Template Name: news */ ?>
+<?php /* Template Name: posts */ ?>
 <?php get_header();?>
 
 <div id="visual">
@@ -20,7 +20,9 @@
 
 	<?php 
 		//カテゴリーリスト
-		$category_id=get_category_by_slug('news')->cat_ID;
+		// $cat=the_category();
+		$page_category_slug=$post->post_name; //news or success
+		$category_id=get_category_by_slug($page_category_slug)->cat_ID;
 		$cat=get_category($category_id);
 		$cat_slug=$cat->slug;
 		$cat_id=$cat->cat_ID;
@@ -36,16 +38,15 @@
 		$categories_list_html='<ul class="wp-block-categories wp-block-categories-list margin60">';
 		$categories_list_html.=
 				'<li class="cat-item actived">'.
-					'<a href="javascript:;" data-count="'.$parent_cat_count.'" onclick="get_news_post_data(\''.$cat_slug.'\', this)">'.
+					'<a href="javascript:;" data-count="'.$parent_cat_count.'" onclick="get_post_data(\''.$cat_slug.'\', this)">'.
 						'所有'.
 					'</a>'.
 				'</li>';
 
 		foreach($child_categories as $child){
-			// print_r($child);
 			$categories_list_html.=
 				'<li class="cat-item">'.
-					'<a href="javascript:;" data-count="'.$child->count.'" onclick="get_news_post_data(\''.$child->slug.'\', this)">'.
+					'<a href="javascript:;" data-count="'.$child->count.'" onclick="get_post_data(\''.$child->slug.'\', this)">'.
 						$child->cat_name.
 					'</a>'.
 				'</li>';
@@ -59,7 +60,7 @@
 	<h2 id="listTitle">所有</h2>
 	<ul id="listArea" class="wp-block-latest-posts wp-block-latest-posts__list has-dates"></ul>
 	<script>
-		var category_type='news';
+		var category_type="<?php echo $page_category_slug ?>";
 		var category_count=0;
 		var category_has_shown=0;
 		var is_end=false;
@@ -68,7 +69,7 @@
 		var list_start=0;
 		var list_end=0;
 
-		function get_news_post_data(type, ths){
+		function get_post_data(type, ths){
 			//calculate start and end
 			is_change_type=false;
 			if(category_type!==type){
@@ -119,10 +120,10 @@
 					is_loading=false;
 				}
 			};
-			mailXhr.send("action=getnewspost"+"&"+"type="+category_type+"&"+"count="+category_count+"&"+"start="+list_start+"&"+"end="+list_end);
+			mailXhr.send("action=getpost"+"&"+"type="+category_type+"&"+"count="+category_count+"&"+"start="+list_start+"&"+"end="+list_end);
 		}
 
-		get_news_post_data(category_type, document.querySelector('.cat-item a'));
+		get_post_data(category_type, document.querySelector('.cat-item a'));
 
 		//scroll to load new
 		window.addEventListener('scroll', function(){
@@ -133,7 +134,7 @@
 			var scrollTop=scroller.scrollTop;
 			var scrollHeight=scroller.scrollHeight;
 			if(innerHeight+scrollTop>=scrollHeight-footerMenu.clientHeight-footerInfo.clientHeight && !is_loading && !is_end){
-				get_news_post_data(category_type, document.querySelector('.cat-item.actived a'));
+				get_post_data(category_type, document.querySelector('.cat-item.actived a'));
 			}
 		})
 		

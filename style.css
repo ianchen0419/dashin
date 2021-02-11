@@ -875,11 +875,6 @@ Cover
 	flex-basis: 100vw;
 }
 
-.wp-block-group.is-style-slider .wp-block-group__inner-container .wp-block-cover p {
-	width: 50%;
-	min-width: 500px;
-}
-
 .dots {
 	display: flex;
 	justify-content: center;

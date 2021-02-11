@@ -69,7 +69,7 @@ body .editor-styles-wrapper {
 	scroll-snap-type: x mandatory;
 }
 
-.wp-block-group.is-style-slider .wp-block {
+.wp-block-group.is-style-slider .wp-block[data-type="core/cover"] {
 	flex-shrink: 0;
 	flex-basis: 100%;
 	scroll-snap-align: start;
@@ -249,4 +249,14 @@ body table.advgb-table-frontend td, body table.advgb-table-frontend tr {
 
 .is-style-ellipsis.is-selected {
 	display: block;
+}
+
+/*WordPress 5.6 Test Server Button Align Bugs*/
+.editor-styles-wrapper .wp-block[data-align=center] > * {
+	text-align: center;
+}
+
+.editor-styles-wrapper .wp-block div.wp-block {
+	max-width: none;
+	width: auto;
 }
