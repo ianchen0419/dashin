@@ -27,7 +27,7 @@
 	<div class="page-title">
 		<img src="<?php echo get_stylesheet_directory_uri().'/img/title.png' ?>" height="100%" />
 		<div class="wrapper-size">
-			<h1 class="has-large-font-size has-blue-color has-text-align-center"><?php echo $cat_title_name ?></h1>
+			<h1 class="has-blue-color has-text-align-center"><?php echo $cat_title_name ?></h1>
 		</div>
 	</div>
 </div>
@@ -71,7 +71,7 @@
 			?>
 
 			<div class="single-panel">
-				<img src="<?php echo $post_thumbnail; ?>" alt="<?php echo the_title(); ?>" width="100%" />
+				<img class="single-thumbnail" src="<?php echo $post_thumbnail; ?>" alt="<?php echo the_title(); ?>" width="100%" />
 				<div class="single-panel-body">
 					<?php
 						

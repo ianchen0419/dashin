@@ -4,7 +4,7 @@
 	<div class="page-title">
 		<img src="<?php echo get_stylesheet_directory_uri().'/img/title.png' ?>" height="100%" />
 		<div class="wrapper-size">
-			<h1 class="has-large-font-size has-blue-color has-text-align-center"><?php the_title(); ?></h1>
+			<h1 class="has-blue-color has-text-align-center"><?php the_title(); ?></h1>
 		</div>
 	</div>
 </div>

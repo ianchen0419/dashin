@@ -36,12 +36,6 @@ main > *:not(.alignright):not(.alignleft):not(.is-style-slider):not(.alignfull),
 	margin-top: 80px;
 }
 
-@media screen and (max-width: 768px) {
-	main > *:not(.alignright):not(.alignleft):not(.is-style-slider) {
-		width: calc(100% - 40px);
-	}
-}
-
 /*single content*/
 .single-wrapper {
 	max-width: 1000px;
@@ -121,6 +115,7 @@ Single
 	top: 0;
 	background-size: contain;
 	pointer-events: none;
+	z-index: -1;
 }
 
 .single-panel {
@@ -464,7 +459,6 @@ body:before {
 
 #menu-header > li, #menu-footer > li, .menu-social-container .menu > li {
 	padding-top: 16px;
-	padding-bottom: 16px;
 }
 
 #menu-header > li > a,
@@ -579,8 +573,6 @@ body:before {
 Full Menu
 ********************/
 #menu {
-	width: 110px;
-	height: 100px;
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -607,6 +599,11 @@ Full Menu
 	display: block;
 }
 
+#menu td {
+	padding-top: 0;
+	padding-bottom: 15px;
+}
+
 #menu-full, #header .menu-social-container .menu {
 	display: none;
 }
@@ -615,6 +612,7 @@ Full Menu
 	text-decoration: none;
 	color: #fff;
 	flex-shrink: 0;
+	min-width: 150px;
 }
 
 body.menu-open {
@@ -635,7 +633,6 @@ body.menu-open #menu:before {
 body.menu-open .menu-full-container {
 	display: flex;
 	height: 100%;
-	padding-top: 80px;
 }
 
 body.menu-open #menu-full {
@@ -647,14 +644,14 @@ body.menu-open #menu-full {
 body.menu-open #menu-full > li {
 	display: flex;
 	font-size: 32px;
-	margin-bottom: 14px;
+	margin-top: 14px;
 	align-items: center;
 	animation: menu-up 0.3s;
 	animation-fill-mode: forwards;
 	position: relative;
 	opacity: 0;
 	bottom: -30px;
-	height: 76px;
+	height: 60px;
 }
 
 body.menu-open #menu-full > li:nth-child(1) {
@@ -685,6 +682,26 @@ body.menu-open #menu-full > li:nth-child(7) {
 	animation-delay: 0.9s;
 }
 
+body.menu-open #menu-full > li:nth-child(8) {
+	animation-delay: 1.0s;
+}
+
+body.menu-open #menu-full > li:nth-child(9) {
+	animation-delay: 1.1s;
+}
+
+body.menu-open #menu-full > li:nth-child(10) {
+	animation-delay: 1.2s;
+}
+
+body.menu-open #menu-full > li:nth-child(11) {
+	animation-delay: 1.3s;
+}
+
+body.menu-open #menu-full > li:nth-child(12) {
+	animation-delay: 1.4s;
+}
+
 body.menu-open #menu-full .sub-menu {
 	opacity: 0;
 	pointer-events: none;
@@ -712,7 +729,6 @@ body.menu-open #header .menu-social-container .menu {
 	z-index: 1;
 	display: block;
 	margin-right: 20px;
-	margin-bottom: 14px;
 }
 
 body.menu-open #header .menu-social-container .menu li {
@@ -947,6 +963,12 @@ footer {
 	padding: 10px 0;
 }
 
+#footerMenu .wp-block-columns,
+#footerInfo .wp-block-columns {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 #footerInfo .wp-block-column:last-child {
 	text-align: right;
 } 
@@ -1030,6 +1052,10 @@ h3 {
 	color: #F27179;
 }
 
+.page-title h1 {
+	font-size: 2.25em;
+}
+
 /********************
 Buttons
 ********************/
@@ -1046,7 +1072,7 @@ Buttons
 	background: #F27179;
 	border-radius: 30px;
 	padding: 8px 10px 8px 20px;
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	transition: box-shadow 0.3s;
 }
@@ -1213,6 +1239,10 @@ Media and Text
 	box-shadow: 0px 16px 24px 0px rgba(48, 49, 51, 0.1), 0px 0px 1px 0px rgba(48, 49, 51, 0.05);
 }
 
+.wp-block-media-text[class*="sticky"] .wp-block-media-text__content {
+	padding: 6% 8%;
+}
+
 .wp-block-media-text[class*="sticky"] .wp-block-media-text__media {
 	position: relative;
 	z-index: 1;
@@ -1246,7 +1276,6 @@ Media and Text
 
 .wp-block-media-text.alignwide.is-style-radius .wp-block-media-text__media {
 	overflow: hidden;
-	height: calc(100vw / 3);
 	max-height: 543px;
 }
 
@@ -1268,6 +1297,31 @@ Media and Text
 	flex-direction: column;
 	justify-content: center;
 	background-position: center center;
+}
+
+.wp-block-media-text.is-style-shadow {
+	margin-bottom: 80px;
+}
+
+.wp-block-media-text.is-style-shadow .wp-block-media-text__media {
+	position: relative;
+	text-align: center;
+}
+
+.wp-block-media-text.is-style-shadow .wp-block-media-text__media:before {
+	content: '';
+	background: #EAF3FA;
+	width: 80%;
+	height: 100%;
+	display: block;
+	position: absolute;
+	z-index: -1;
+	top: 30px;
+	left: 10px;
+}
+
+.wp-block-media-text.is-style-shadow .wp-block-media-text__media img {
+	width: 80%;
 }
 
 /********************
@@ -1385,7 +1439,7 @@ Image Block
 /********************
 List Block
 ********************/
-.wp-block-columns ol, .wp-block-columns ul {
+.wp-block-columns ol, .wp-block-columns ul:not(.blocks-gallery-grid):not(.menu) {
 	padding-left: 20px;
 }
 
@@ -1408,6 +1462,10 @@ Column Block
 	box-sizing: border-box;
 	text-decoration: none;
 	color: inherit;
+}
+
+.relats-nav-four {
+	display: none;
 }
 
 /********************
@@ -1526,6 +1584,22 @@ main > .wp-block-embed-youtube iframe {
 	width: 1000px;
 	height: 562px;
 }
+
+/********************
+Jetpack Form Button Align
+********************/
+.wp-block-jetpack-button.alignleft {
+	text-align: left;
+}
+
+.wp-block-jetpack-button.aligncenter {
+	text-align: center;
+}
+
+.wp-block-jetpack-button.alignright {
+	text-align: right;
+}
+
 /********************
 InspectorControls 自作マージンコントロール
 ********************/

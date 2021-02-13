@@ -39,3 +39,10 @@
 |`.has-text-align-left`		|`text-align: left`		|
 |`.has-text-align-center`	|`text-align: center`	|
 |`.has-text-align-right`	|`text-align: right`	|
+
+## RWD CSS
+
+|Device Width		|CSS File		|
+|-------------------|---------------|
+|`783px` ~ `1000px`	|`tablet.css`	|
+|`320px` ~ `782px`	|`mobile.css`	|

@@ -251,6 +251,42 @@ body table.advgb-table-frontend td, body table.advgb-table-frontend tr {
 	display: block;
 }
 
+/*Media and Text Shadow*/
+.editor-styles-wrapper .wp-block-media-text.is-style-shadow[data-block] {
+	margin-bottom: 80px;
+}
+
+.wp-block-media-text.is-style-shadow .wp-block-media-text__media {
+	position: relative;
+	text-align: center;
+}
+
+.wp-block-media-text.is-style-shadow .wp-block-media-text__media:before {
+	content: '';
+	background: #EAF3FA;
+	width: 80%;
+	height: 100%;
+	display: block;
+	position: absolute;
+	top: 30px;
+	left: 10px;
+}
+
+.wp-block-media-text.is-style-shadow .wp-block-media-text__media img {
+	width: 80%;
+	position: relative;
+}
+
+/*Jetpack Form Button Align*/
+div[data-type="jetpack/button"][data-align="center"] {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+div[data-type="jetpack/button"][data-align="right"] {
+	margin-left: auto;
+}
+
 /*WordPress 5.6 Test Server Button Align Bugs*/
 .editor-styles-wrapper .wp-block[data-align=center] > * {
 	text-align: center;

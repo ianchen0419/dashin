@@ -5,7 +5,7 @@
 	<div class="page-title">
 		<img src="<?php echo get_stylesheet_directory_uri().'/img/title.png' ?>" height="100%" />
 		<div class="wrapper-size">
-			<h1 class="has-large-font-size has-blue-color has-text-align-center"><?php the_title(); ?></h1>
+			<h1 class="has-blue-color has-text-align-center"><?php the_title(); ?></h1>
 		</div>
 	</div>
 </div>
@@ -58,17 +58,24 @@
 						'</a>';
 				}
 
-		$nav_html='';
-		if(count($my_getposts)>4){
-			$nav_html=
-			'</div>'.
-				'<div class="has-text-align-center">'.
+		$html.=
+				'</div>';
+
+
+		$is_nav_four='';
+		if(count($my_getposts)<5){
+			$is_nav_four=' relats-nav-four';
+		}
+		$nav_html=
+				'<div class="has-text-align-center relates-nav'.$is_nav_four.'">'.
 					'<i class="ai-left-circle-o relates-slide-icon-left" onclick="relatesToLeft()"></i>'.
 					'<i class="ai-right-circle-o relates-slide-icon-right" onclick="relatesToRight()"></i>'.
-				'</div>'.
-			'</div>';
-		}
+				'</div>';
+
 		$html.=$nav_html;
+
+		$html.=
+			'</div>';
 
 		echo $html;
 

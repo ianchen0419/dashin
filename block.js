@@ -64,6 +64,14 @@ wp.blocks.registerBlockStyle(
 	}
 )
 
+//メディアとテキスト 水色の影
+wp.blocks.registerBlockStyle(
+	'core/media-text', {
+		name: 'shadow',
+		label: '圖片陰影'
+	}
+)
+
 //ボタン　素朴なボタン
 wp.blocks.registerBlockStyle(
 	'core/button', {

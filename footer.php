@@ -1,6 +1,6 @@
 	<footer id="footerMenu" class="has-sky-background-color">
 		<div class="wrapper-size">
-			<div class="wp-block-columns margin20">
+			<div class="wp-block-columns are-vertically-aligned-center">
 				<div class="wp-block-column">
 					<?php the_custom_logo(); ?>
 				</div>
@@ -15,7 +15,7 @@
 	</footer>
 	<footer id="footerInfo" class="has-blue-background-color has-white-color">
 		<div class="wrapper-size">
-			<div class="wp-block-columns has-small-font-size margin20 are-vertically-aligned-center">
+			<div class="wp-block-columns has-small-font-size are-vertically-aligned-center">
 				<?php dynamic_sidebar('footer-info'); ?>
 			</div>
 		</div>

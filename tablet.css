@@ -1,0 +1,36 @@
+#header .custom-logo-link img, 
+#footerMenu .custom-logo-link img {
+	width: 120px;
+}
+
+#menu-header, #menu-footer {
+	display: flex;
+}
+
+#footerMenu .wp-block-column:nth-child(2) {
+	flex: 5;
+	margin-right: 0;
+	margin-left: 0;
+}
+
+#footerMenu .wp-block-column:nth-child(3) {
+	margin-left: 0;
+}
+
+.menu-social-container .menu a {
+	margin: 0 3px;
+}
+
+.menu-social-container .menu a:before {
+	width: 26px;
+	height: 26px;
+	background-size: cover;
+}
+
+.relats-nav-four {
+	display: block;
+}
+
+main > .wp-block-embed-youtube iframe {
+	height: calc((100vw - 40px ) * 9 / 16);
+}

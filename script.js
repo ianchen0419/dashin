@@ -16,9 +16,6 @@ function checkBlock(){
 		if (isHalfShown && isNotScrolledPast) {
 			motionBlocks[i].classList.add('wp-motion');
 		}
-		//  else {
-		// 	motionBlocks[i].classList.remove('wp-motion');
-		// }
 	}
 	
 }

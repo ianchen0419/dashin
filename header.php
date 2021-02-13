@@ -7,14 +7,14 @@
 	<meta name="description" content="<?php bloginfo('description') ?>" />
 	<meta name="keywords" content="台中不孕症婦產科, 台中不孕症門診醫院, 台中不孕門診,台中不孕症權威,台中試管嬰兒,台中婦產科診所,台中不孕症治療,台中人工受孕" />
 	<link rel="stylesheet prefetch" href="<?php bloginfo('template_directory') ?>/style.css" />
-	<link rel="stylesheet prefetch" href="<?php bloginfo('template_directory') ?>/mobile.css" media="screen and (max-width: 1000px)" />
+	<link rel="stylesheet prefetch" href="<?php bloginfo('template_directory') ?>/tablet.css" media="screen and (max-width: 1000px)" />
+	<link rel="stylesheet prefetch" href="<?php bloginfo('template_directory') ?>/mobile.css" media="screen and (max-width: 782px)" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ant-design-icons/dist/anticons.min.css" />
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 	<script>
-
 		<?php
 			$need_loading=get_post_meta($post->ID, 'loading', true);
 			if($need_loading==true){
@@ -28,9 +28,6 @@
 	<script src="<?php bloginfo('template_directory') ?>/loading.js"></script>
 	<?php wp_body_open(); ?>
 	<section id="loading">
-		<!-- <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
-			<circle cx="50" cy="50" fill="none" stroke="#4978BC" stroke-width="10" r="35" stroke-dasharray="165 57"></circle>
-		</svg> -->
 		<svg width="199" height="300" viewBox="0 0 199 300">
 			<path d="M131.63 3.1306C131.63 3.1306 94.1803 1.5706 82.5303 28.9306C70.8703 56.2906 69.3604 70.6806 69.3604 70.6806C69.3604 70.6806 82.2704 34.6906 94.1204 24.7906C105.98 14.8906 119.2 9.1806 131.63 3.1306Z" fill="#2383C6"/>
 			<path d="M64.96 89.9604L67.01 70.4304C67.08 69.8304 68.7 55.3704 80.35 28.0004C92.51 -0.539577 130.13 0.720424 131.73 0.770424L141.1 1.16042L132.67 5.26042C131.07 6.04042 129.46 6.81042 127.84 7.59042C116.98 12.7904 105.75 18.1704 95.65 26.6104C84.43 35.9804 71.72 71.1304 71.6 71.4804L64.96 89.9604ZM119.19 6.51042C107.73 8.45042 91.45 14.0204 84.71 29.8504C83.43 32.8404 82.29 35.6804 81.24 38.3504C84.81 31.9604 88.74 26.2004 92.61 22.9704C101.09 15.8904 110.18 10.9504 119.19 6.51042Z" fill="#2383C6"/>
