@@ -196,6 +196,18 @@ body {
 	}
 }
 
+/*media and text motion*/
+#contact > .wp-block-media-text {
+	opacity: 0;
+	bottom: -100px;
+	position: relative;
+}
+
+#contact > .wp-block-media-text.wp-motion {
+	animation: columns-up 0.8s;
+	animation-fill-mode: forwards;
+}
+
 /*paragraph motion*/
 #contact > p {
 	opacity: 0;
