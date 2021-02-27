@@ -1,7 +1,3 @@
-body {
-	/*border: 1px solid #000;*/
-}
-
 .hidden-mb {
 	display: none;
 }
@@ -243,14 +239,10 @@ Footer
 /********************
 Full Visual
 ********************/
-.full-visual {
-	height: calc(100vh - 46px);
+.full-visual, #wpadminbar ~ .full-visual {
+	height: calc(100vh - 65px);
 	display: flex;
 	align-items: center;
-}
-
-.full-visual .full-visual-content {
-	margin-top: 0px;
 }
 
 .full-visual .full-visual-items {

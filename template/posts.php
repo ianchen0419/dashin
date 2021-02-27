@@ -20,7 +20,6 @@
 
 	<?php 
 		//カテゴリーリスト
-		// $cat=the_category();
 		$page_category_slug=$post->post_name; //news or success
 		$category_id=get_category_by_slug($page_category_slug)->cat_ID;
 		$cat=get_category($category_id);
@@ -111,7 +110,8 @@
 			mailXhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			mailXhr.onreadystatechange=function(){
 				if(mailXhr.readyState==4 && mailXhr.status==200){
-					document.querySelector('.news-list-loading').remove();
+					// console.log('yaya')
+					document.querySelector('.news-list-loading').outerHTML='';
 					var json=JSON.parse(mailXhr.responseText);
 					listArea.innerHTML+=json;
 					if(!is_end){

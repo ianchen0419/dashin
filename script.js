@@ -3,17 +3,17 @@ Scroll Motion
 ********************/
 window.addEventListener('scroll', checkBlock);
 function checkBlock(){
-	var motionBlocks=document.querySelectorAll('.wp-block-media-text[class*="sticky"], .wp-block-latest-posts.is-grid, .wp-block-columns');
+	var motionBlocks=document.querySelectorAll('.wp-block-media-text[class*="sticky"], .wp-block-latest-posts.is-grid, .wp-block-columns, #contact > p');
 	for(i=0;i<motionBlocks.length;i++){
 		var itemOffsetTop=motionBlocks[i].offsetTop;
 		if(motionBlocks[i].parentNode.id!=='contact'){
 			itemOffsetTop+=motionBlocks[i].offsetParent.offsetTop;
 		}
-		var itemInAt = (window.scrollY + window.innerHeight) - motionBlocks[i].clientHeight / 2;
-		var itemBottom = itemOffsetTop + motionBlocks[i].clientHeight;
-		var isHalfShown = itemInAt > itemOffsetTop;
-		var isNotScrolledPast = window.scrollY < itemBottom;
-		if (isHalfShown && isNotScrolledPast) {
+		var itemInAt=(window.pageYOffset + window.innerHeight) - motionBlocks[i].clientHeight / 2;
+		var itemBottom=itemOffsetTop + motionBlocks[i].clientHeight;
+		var isHalfShown=itemInAt > itemOffsetTop;
+		var isNotScrolledPast=window.pageYOffset < itemBottom;
+		if(isHalfShown && isNotScrolledPast) {
 			motionBlocks[i].classList.add('wp-motion');
 		}
 	}
