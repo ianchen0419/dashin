@@ -3,7 +3,7 @@ Scroll Motion
 ********************/
 window.addEventListener('scroll', checkBlock);
 function checkBlock(){
-	var motionBlocks=document.querySelectorAll('.wp-block-media-text[class*="sticky"], .wp-block-latest-posts.is-grid, .wp-block-columns, #contact > p, .wp-block-media-text');
+	var motionBlocks=document.querySelectorAll('.wp-block-media-text[class*="sticky"], .wp-block-latest-posts.is-grid, .wp-block-columns, #contact > p, .wp-block-media-text, #contact > ul, #contact > ol');
 	for(i=0;i<motionBlocks.length;i++){
 		var itemOffsetTop=motionBlocks[i].offsetTop;
 		if(motionBlocks[i].parentNode.id!=='contact'){
