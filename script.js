@@ -3,20 +3,28 @@ Scroll Motion
 ********************/
 window.addEventListener('scroll', checkBlock);
 function checkBlock(){
-	var motionBlocks=document.querySelectorAll('.wp-block-media-text[class*="sticky"], .wp-block-latest-posts.is-grid, .wp-block-columns, #contact > p, .wp-block-media-text, #contact > ul, #contact > ol');
-	for(i=0;i<motionBlocks.length;i++){
-		var itemOffsetTop=motionBlocks[i].offsetTop;
-		if(motionBlocks[i].parentNode.id!=='contact'){
-			itemOffsetTop+=motionBlocks[i].offsetParent.offsetTop;
+	// var motionBlocks=document.querySelectorAll('.wp-block-media-text[class*="sticky"], .wp-block-latest-posts.is-grid, .wp-block-columns, #contact > p, .wp-block-media-text, #contact > ul:not(.contact-path), #contact > ol');
+	var motionBlocks=document.querySelectorAll('#contact > *');
+	if(innerWidth>782){
+		//table or PC
+		
+		for(i=0;i<motionBlocks.length;i++){
+			var itemOffsetTop=motionBlocks[i].offsetTop;
+			if(motionBlocks[i].parentNode.id!=='contact'){
+				itemOffsetTop+=motionBlocks[i].offsetParent.offsetTop;
+			}
+			var itemInAt=(window.pageYOffset + window.innerHeight) - motionBlocks[i].clientHeight / 2;
+			var itemBottom=itemOffsetTop + motionBlocks[i].clientHeight;
+			var isHalfShown=itemInAt > itemOffsetTop;
+			var isNotScrolledPast=window.pageYOffset < itemBottom;
+			if(isHalfShown && isNotScrolledPast) {
+				motionBlocks[i].classList.add('wp-motion');
+			}
 		}
-		var itemInAt=(window.pageYOffset + window.innerHeight) - motionBlocks[i].clientHeight / 2;
-		var itemBottom=itemOffsetTop + motionBlocks[i].clientHeight;
-		var isHalfShown=itemInAt > itemOffsetTop;
-		var isNotScrolledPast=window.pageYOffset < itemBottom;
-		if(isHalfShown && isNotScrolledPast) {
-			motionBlocks[i].classList.add('wp-motion');
-		}
+	}else{
+		//mobile
 	}
+	
 	
 }
 
@@ -102,6 +110,8 @@ function changeSlide(delegateIndex){
 Full Menu Show
 ********************/
 function showMenu(ths){
+	menu.style.height=innerHeight+'px';
+
 	var scrollBarWidth=innerWidth-document.body.clientWidth;
 	var headerOriginPaddingRight=parseInt(getComputedStyle(header).paddingRight.replace('px', ''));
 	

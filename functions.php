@@ -22,6 +22,7 @@ function register_my_menu() {
 		'footer'	=> 'footer',
 		'social'	=> 'social',
 		'full'		=> 'full',
+		'language'	=> 'language',
 	);
 	register_nav_menus($locations);
 }

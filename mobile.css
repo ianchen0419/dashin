@@ -78,19 +78,20 @@ Menu
 	top: 10px;
 }
 
+body.menu-open #contact {
+	position: fixed;
+}
+
 body.menu-open #menu:before {
 	width: calc(100vw + 50px);
 	height: calc(100vh + 60px);
+	transition: none;
 }
 
 body.menu-open #menu {
 	display: flex;
 	justify-content: flex-end;
 	flex-direction: column;
-}
-
-body.menu-open #menu table {
-	height: 100%;
 }
 
 body.menu-open .menu-full-container {
@@ -107,7 +108,7 @@ body.menu-open #header .menu-social-container .menu {
 }
 
 body.menu-open #menu-full > li {
-	height: 45px;
+	height: 40px;
 	font-size: 24px;
 }
 
@@ -355,12 +356,20 @@ Contact Path
 /********************
 Animation
 ********************/
+#contact > ol.wp-motion,
+#contact > ul.wp-motion,
+#contact > .wp-block-media-text.wp-motion,
+#contact > p.wp-motion,
 #contact > .wp-block-columns > .wp-block-column {
 	opacity: 1;
 	bottom: 0;
 	position: static;
 }
 
+#contact > ol.wp-motion,
+#contact > ul.wp-motion,
+#contact > .wp-block-media-text.wp-motion,
+#contact > p.wp-motion,
 #contact > .wp-block-columns.wp-motion > .wp-block-column {
 	animation: none;
 }

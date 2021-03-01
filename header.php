@@ -55,6 +55,7 @@
 				<td align="right">
 					<nav>
 						<?php wp_nav_menu(array('theme_location' => 'header')); ?>
+						<?php wp_nav_menu(array('theme_location' => 'language')); ?>
 					</nav>
 				</td>
 				<td width="120"></td>
