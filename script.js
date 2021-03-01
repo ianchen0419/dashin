@@ -18,7 +18,7 @@ function checkBlock(){
 			itemInAt=(window.pageYOffset + window.innerHeight) - motionBlocks[i].clientHeight / 2;
 		}else{
 			//mobile
-			itemInAt=(window.pageYOffset + window.innerHeight) - motionBlocks[i].clientHeight + window.innerHeight;
+			itemInAt=(window.pageYOffset + window.innerHeight) - window.innerHeight / 3;
 		}
 		
 		var itemBottom=itemOffsetTop + motionBlocks[i].clientHeight;

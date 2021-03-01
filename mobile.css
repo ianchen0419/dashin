@@ -99,8 +99,8 @@ body.menu-open .menu-full-container {
 }
 
 body.menu-open #menu-full {
-	padding-left: 16px;
 	margin-top: 0;
+	margin-left: 16px;
 }
 
 body.menu-open #header .menu-social-container .menu {
