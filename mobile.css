@@ -356,23 +356,15 @@ Contact Path
 /********************
 Animation
 ********************/
-#contact > ol.wp-motion,
-#contact > ul.wp-motion,
-#contact > .wp-block-media-text.wp-motion,
-#contact > p.wp-motion,
-#contact > .wp-block-columns > .wp-block-column {
+/*#contact > * {
 	opacity: 1;
 	bottom: 0;
 	position: static;
 }
 
-#contact > ol.wp-motion,
-#contact > ul.wp-motion,
-#contact > .wp-block-media-text.wp-motion,
-#contact > p.wp-motion,
-#contact > .wp-block-columns.wp-motion > .wp-block-column {
+#contact > *.wp-motion {
 	animation: none;
-}
+}*/
 
 /********************
 List

@@ -196,31 +196,15 @@ body {
 	}
 }
 
-/*ol motion & ul motion*/
-/*media and text motion*/
-/*paragraph motion*/
-/*columns motion*/
+/*motion*/
 
-#contact > ol,
-#contact > ul:not(.contact-path),
-#contact > .wp-block-media-text,
-#contact > p,
-#contact > .wp-block-columns > .wp-block-column {
+#contact > * {
 	opacity: 0;
-	bottom: -100px;
+	bottom: calc(100% / 10);
 	position: relative;
 }
 
-#contact > .wp-block-media-text.wp-motion {
-	animation: columns-up 0.8s;
-	animation-fill-mode: forwards;
-}
-
-#contact > ol.wp-motion,
-#contact > ul:not(.contact-path).wp-motion,
-#contact > .wp-block-media-text.wp-motion,
-#contact > p.wp-motion,
-#contact > .wp-block-columns.wp-motion > .wp-block-column {
+#contact > *.wp-motion {
 	animation: columns-up 0.8s;
 	animation-fill-mode: forwards;
 }

@@ -1,32 +1,42 @@
 /********************
 Scroll Motion
 ********************/
+
+
 window.addEventListener('scroll', checkBlock);
 function checkBlock(){
-	// var motionBlocks=document.querySelectorAll('.wp-block-media-text[class*="sticky"], .wp-block-latest-posts.is-grid, .wp-block-columns, #contact > p, .wp-block-media-text, #contact > ul:not(.contact-path), #contact > ol');
-	var motionBlocks=document.querySelectorAll('#contact > *');
-	if(innerWidth>782){
-		//table or PC
-		
-		for(i=0;i<motionBlocks.length;i++){
-			var itemOffsetTop=motionBlocks[i].offsetTop;
-			if(motionBlocks[i].parentNode.id!=='contact'){
-				itemOffsetTop+=motionBlocks[i].offsetParent.offsetTop;
-			}
-			var itemInAt=(window.pageYOffset + window.innerHeight) - motionBlocks[i].clientHeight / 2;
-			var itemBottom=itemOffsetTop + motionBlocks[i].clientHeight;
-			var isHalfShown=itemInAt > itemOffsetTop;
-			var isNotScrolledPast=window.pageYOffset < itemBottom;
-			if(isHalfShown && isNotScrolledPast) {
-				motionBlocks[i].classList.add('wp-motion');
-			}
+	var motionBlocks=document.querySelectorAll('#contact > *, .wp-block-media-text[class*="sticky"], .wp-block-latest-posts.is-grid');
+	
+	for(i=0;i<motionBlocks.length;i++){
+		var itemOffsetTop=motionBlocks[i].offsetTop;
+		if(motionBlocks[i].parentNode.id!=='contact'){
+			itemOffsetTop+=motionBlocks[i].offsetParent.offsetTop;
 		}
-	}else{
-		//mobile
+		var itemInAt;
+		if(innerWidth>782){
+			//table or PC
+			itemInAt=(window.pageYOffset + window.innerHeight) - motionBlocks[i].clientHeight / 2;
+		}else{
+			//mobile
+			itemInAt=(window.pageYOffset + window.innerHeight) - motionBlocks[i].clientHeight + window.innerHeight;
+		}
+		
+		var itemBottom=itemOffsetTop + motionBlocks[i].clientHeight;
+		var isHalfShown=itemInAt > itemOffsetTop;
+		var isNotScrolledPast=window.pageYOffset < itemBottom;
+		if(isHalfShown && isNotScrolledPast) {
+			motionBlocks[i].classList.add('wp-motion');
+		}
 	}
 	
-	
 }
+
+window.addEventListener('resize', function(){
+	var motionContactBlocks=document.querySelectorAll('#contact > *');
+	for(i=0;i<motionContactBlocks.length;i++){
+		motionContactBlocks[i].classList.remove('wp-motion');
+	}
+})
 
 /********************
 TopPage Slider
