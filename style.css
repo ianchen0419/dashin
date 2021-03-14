@@ -448,6 +448,7 @@ body:before {
 	background: #fff;
 	top: 0;
 	z-index: 2;
+	box-shadow: 1px 1px 6px 0px #9c9c9c;
 }
 
 #header li,

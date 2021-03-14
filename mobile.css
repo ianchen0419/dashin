@@ -126,6 +126,11 @@ body.menu-open #menu-full > li:hover .sub-menu {
 	padding-bottom: 8px;
 }
 
+#menu-language {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
 /********************
 Latest Posts
 ********************/
