@@ -198,13 +198,13 @@ body {
 
 /*motion*/
 
-#contact > *:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) {
+#contact > *.need-motion {
 	opacity: 0;
 	bottom: calc(100% / 10);
 	position: relative;
 }
 
-#contact > *.wp-motion:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) {
+#contact > *.need-motion.wp-motion {
 	animation: columns-up 0.8s;
 	animation-fill-mode: forwards;
 }

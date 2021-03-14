@@ -2,10 +2,11 @@
 Scroll Motion
 ********************/
 
+var motionBlocks=document.querySelectorAll('#contact > *, .wp-block-media-text[class*="sticky"], .wp-block-latest-posts.is-grid');
 
 window.addEventListener('scroll', checkBlock);
 function checkBlock(){
-	var motionBlocks=document.querySelectorAll('#contact > *, .wp-block-media-text[class*="sticky"], .wp-block-latest-posts.is-grid');
+	
 	
 	for(i=0;i<motionBlocks.length;i++){
 		var itemOffsetTop=motionBlocks[i].offsetTop;
@@ -36,7 +37,19 @@ window.addEventListener('resize', function(){
 	for(i=0;i<motionContactBlocks.length;i++){
 		motionContactBlocks[i].classList.remove('wp-motion');
 	}
+
+	checkNoMotion();
 })
+
+//Define No Motion
+function checkNoMotion(){
+	for(i=0;i<motionBlocks.length;i++){
+		if(motionBlocks[i].offsetTop>innerHeight){
+			motionBlocks[i].classList.add('need-motion');
+		}
+	}
+}
+checkNoMotion();
 
 /********************
 TopPage Slider
