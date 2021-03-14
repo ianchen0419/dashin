@@ -2,7 +2,7 @@
 Scroll Motion
 ********************/
 
-var motionBlocks=document.querySelectorAll('#contact > *, .wp-block-media-text[class*="sticky"], .wp-block-latest-posts.is-grid');
+var motionBlocks=document.querySelectorAll('#contact > *:not(#listArea), .wp-block-media-text[class*="sticky"], .wp-block-latest-posts.is-grid');
 
 window.addEventListener('scroll', checkBlock);
 function checkBlock(){
