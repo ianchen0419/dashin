@@ -225,8 +225,6 @@ body {
 	animation-delay: 0.8s;
 }
 
-#contact > .wp-block-columns.wp-motion
-
 /*sticky motion*/
 .wp-block-media-text[class*="sticky"] .wp-block-media-text__media {
 	top: 100px;
@@ -643,6 +641,7 @@ body.menu-open {
 
 body.menu-open #menu {
 	width: 100vw;
+	height: 100vh;
 	display: flex;
 	align-items: center;
 }
@@ -998,7 +997,7 @@ Cover
 Footer
 ********************/
 footer {
-	padding: 10px 0;
+	padding: 12px 20px;
 }
 
 #footerMenu .wp-block-columns,

@@ -38,8 +38,8 @@ function register_my_widget() {
 				'name' => 'フッター',
 				'id' => 'footer-info',
 				'description' => 'デフォルトフッター',
-				'before_widget' => '<div class="wp-block-column">',
-				'after_widget' => '</div>',
+				'before_widget' => '<td>',
+				'after_widget' => '</td>',
 				'before_title' => '<h3 hidden>',
 				'after_title' => '</h3>'
 				)

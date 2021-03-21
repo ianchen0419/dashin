@@ -82,6 +82,10 @@ body.menu-open #contact {
 	position: fixed;
 }
 
+body.menu-open #contact, body.menu-open footer {
+	opacity: 0;
+}
+
 body.menu-open #menu:before {
 	width: calc(100vw + 50px);
 	height: calc(100vh + 60px);
@@ -92,6 +96,9 @@ body.menu-open #menu {
 	display: flex;
 	justify-content: flex-end;
 	flex-direction: column;
+	overflow-y: auto;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: auto;
 }
 
 body.menu-open .menu-full-container {
@@ -210,8 +217,15 @@ Radius
 /********************
 Footer
 ********************/
-#footerMenu .wp-block-column:nth-child(2),
-#footerInfo .wp-block-column:nth-child(2) {
+#menu-footer {
+	display: none;
+}
+
+#footerInfo td {
+	text-align: center;
+}
+
+#footerInfo td:nth-child(2) {
 	display: none;
 }
 
@@ -230,6 +244,10 @@ Footer
 }
 
 #footerMenu .wp-block-column:nth-child(3) {
+	text-align: right;
+}
+
+.menu-social-container {
 	text-align: right;
 }
 

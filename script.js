@@ -3,6 +3,7 @@ Scroll Motion
 ********************/
 
 var motionBlocks=document.querySelectorAll('#contact > *:not(#listArea), .wp-block-media-text[class*="sticky"], .wp-block-latest-posts.is-grid');
+// var motionBlocks=document.querySelectorAll('.is-style-sky-sticky');
 
 window.addEventListener('scroll', checkBlock);
 function checkBlock(){
@@ -32,13 +33,18 @@ function checkBlock(){
 	
 }
 
+var beforeWidth=window.innerWidth;
 window.addEventListener('resize', function(){
-	var motionContactBlocks=document.querySelectorAll('#contact > *');
-	for(i=0;i<motionContactBlocks.length;i++){
-		motionContactBlocks[i].classList.remove('wp-motion');
-	}
+	var afterWidth=window.innerWidth;
+	if(afterWidth!==beforeWidth){
+		var motionContactBlocks=document.querySelectorAll('#contact > *');
+		for(i=0;i<motionContactBlocks.length;i++){
+			motionContactBlocks[i].classList.remove('wp-motion');
+		}
 
-	checkNoMotion();
+		checkNoMotion();
+	}
+	
 })
 
 //Define No Motion
@@ -133,7 +139,6 @@ function changeSlide(delegateIndex){
 Full Menu Show
 ********************/
 function showMenu(ths){
-	menu.style.height=innerHeight+'px';
 
 	var scrollBarWidth=innerWidth-document.body.clientWidth;
 	var headerOriginPaddingRight=parseInt(getComputedStyle(header).paddingRight.replace('px', ''));
@@ -149,6 +154,7 @@ function showMenu(ths){
 	}
 
 	document.body.classList.toggle('menu-open');
+	
 }
 
 /********************

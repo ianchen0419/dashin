@@ -1,24 +1,24 @@
 	<footer id="footerMenu" class="has-sky-background-color">
-		<div class="wrapper-size">
-			<div class="wp-block-columns are-vertically-aligned-center">
-				<div class="wp-block-column">
+		<table width="100%">
+			<tr>
+				<td>
 					<?php the_custom_logo(); ?>
-				</div>
-				<div class="wp-block-column">
+				</td>
+				<td>
 					<?php wp_nav_menu(array('theme_location' => 'footer')); ?>
-				</div>
-				<div class="wp-block-column">
+				</td>
+				<td>
 					<?php wp_nav_menu(array('theme_location' => 'social')); ?>
-				</div>
-			</div>
-		</div>
+				</td>
+			</tr>
+		</table>
 	</footer>
 	<footer id="footerInfo" class="has-blue-background-color has-white-color">
-		<div class="wrapper-size">
-			<div class="wp-block-columns has-small-font-size are-vertically-aligned-center">
+		<table width="100%">
+			<tr class="has-small-font-size">
 				<?php dynamic_sidebar('footer-info'); ?>
-			</div>
-		</div>
+			</tr>
+		</table>
 	</footer>
 	<script src="<?php bloginfo('template_directory') ?>/script.js"></script>
 	<?php wp_footer(); ?>

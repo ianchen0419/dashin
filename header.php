@@ -73,7 +73,7 @@
 					<text class="svg-text2" font-family="sans-serif" font-size="smaller" x="22.5" y="45" dominant-baseline="middle" fill="white" text-anchor="middle">CLOSE</text>
 				</svg>
 			</a>
-			<table width="100%">
+			<table width="100%" height="100%">
 				<tr>
 					<td>
 						<?php wp_nav_menu(array('theme_location' => 'full')); ?>
