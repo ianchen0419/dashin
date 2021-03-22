@@ -1130,6 +1130,15 @@ Buttons
 	margin-left: 20px;
 }
 
+/*button無法置中bug*/
+.wp-block-buttons.aligncenter {
+	justify-content: center;
+}
+
+.wp-block-buttons.alignright {
+	justify-content: flex-end;
+}
+
 /*simple*/
 .wp-block-button.is-style-simple .wp-block-button__link {
 	background: #fff;
