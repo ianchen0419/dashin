@@ -1548,7 +1548,7 @@ Relates
 /********************
 Paragraph Block
 ********************/
-#main p.is-style-ellipsis {
+main p.is-style-ellipsis {
 	display: -webkit-box;
 	text-overflow: ellipsis;
 	overflow: hidden;
@@ -1556,7 +1556,7 @@ Paragraph Block
 	-webkit-box-orient: vertical;
 }
 
-#main p a, #main li a, #main h3 a {
+main p a, main li a, main h3 a {
 	color: #4978BC;
 }
 
