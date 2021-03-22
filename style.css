@@ -1385,6 +1385,7 @@ body table.advgb-table-frontend thead th {
 
 .wp-block-table td, .wp-block-table th {
 	padding: 24px 18px;
+	border: 1px solid #AFAFAF;
 }
 
 .wp-block-table.is-style-stripes tbody tr:nth-child(odd),
