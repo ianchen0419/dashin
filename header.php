@@ -78,7 +78,7 @@
 					<td>
 						<?php wp_nav_menu(array('theme_location' => 'full')); ?>
 					</td>
-					<td valign="bottom">
+					<td valign="center">
 						<?php wp_nav_menu(array('theme_location' => 'social')); ?>
 					</td>
 				</tr>
