@@ -355,7 +355,8 @@ Loading
 }
 
 body.loading-body {
-	overflow: hidden
+	overflow: hidden;
+	position: fixed;
 }
 
 body.loading-body #contact,

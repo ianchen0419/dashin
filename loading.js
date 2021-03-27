@@ -1,8 +1,7 @@
 function addLoadingMotion(){
-	if(!localStorage['firstAccess']　|| needLoading==true){
+	if(needLoading==true){
 		document.body.classList.add('loading-body');
 	}
-	localStorage['firstAccess']=true;
 }
 addLoadingMotion();
 

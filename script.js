@@ -3,7 +3,6 @@ Scroll Motion
 ********************/
 
 var motionBlocks=document.querySelectorAll('#contact > *:not(#listArea), .wp-block-media-text[class*="sticky"], .wp-block-latest-posts.is-grid');
-// var motionBlocks=document.querySelectorAll('.is-style-sky-sticky');
 
 window.addEventListener('scroll', checkBlock);
 function checkBlock(){

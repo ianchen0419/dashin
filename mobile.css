@@ -139,6 +139,13 @@ body.menu-open #menu-full > li:hover .sub-menu {
 }
 
 /********************
+Loading
+********************/
+body.loading-body #loading svg {
+	width: 100px;
+}
+
+/********************
 Latest Posts
 ********************/
 .wp-block-latest-posts.is-grid.columns-3 {
