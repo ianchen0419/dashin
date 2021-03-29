@@ -358,6 +358,7 @@ Loading
 body.loading-body {
 	overflow: hidden;
 	position: fixed;
+	width: 100%;
 }
 
 body.loading-body #contact,
@@ -433,7 +434,7 @@ body:before {
 	content: '';
 	height: 86px;
 	display: block;
-	width: 100vw;
+	width: 100%;
 }
 
 #wpadminbar~#header {
@@ -685,6 +686,10 @@ body.menu-open #menu-full > li,
 body.menu-open #menu-full > li > a,
 #menu-full-1 > li > a {
 	margin-left: 0; 
+}
+
+body.menu-open #menu-full a:hover {
+	color: inherit;
 }
 
 body.menu-open #menu-full > li:nth-child(1),
