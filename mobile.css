@@ -114,7 +114,8 @@ body.menu-open #header .menu-social-container .menu {
 	margin-right: 16px;
 }
 
-body.menu-open #menu-full > li {
+body.menu-open #menu-full > li,
+#menu-full-1 > li {
 	height: 40px;
 	font-size: 24px;
 }

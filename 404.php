@@ -9,9 +9,10 @@
 	</div>
 </div>
 <main id="contact">
-	<p>
-		<a href="<?php $home_url ?>">回到首頁</a>
-	</p>
+	<p>您尋找的頁面不存在，或許您想尋找…</p>
+	<div class="wrapper-size has-gray-color">
+		<?php wp_nav_menu(array('theme_location' => 'full')); ?>
+	</div>
 </main>
 
 

@@ -75,7 +75,7 @@
 			</a>
 			<table width="100%" height="100%">
 				<tr>
-					<td>
+					<td class="has-white-color">
 						<?php wp_nav_menu(array('theme_location' => 'full')); ?>
 					</td>
 					<td valign="center">
