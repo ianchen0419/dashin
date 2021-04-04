@@ -1654,7 +1654,10 @@ textarea {
 /********************
 Youtube Embed
 ********************/
-main > .wp-block-embed-youtube iframe {
+main > .wp-block-embed-youtube iframe,
+main > .wp-block-embed iframe,
+.single-panel-body > .wp-block-embed-youtube iframe,
+.single-panel-body > .wp-block-embed iframe{
 	width: 1000px;
 	height: 562px;
 }
