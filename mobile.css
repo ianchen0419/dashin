@@ -43,7 +43,7 @@ Header
 	display: none;
 }
 
-#header {
+#header, footer {
 	padding: 8px 16px;
 }
 
@@ -170,6 +170,7 @@ Latest Posts
 
 .wp-block-latest-posts:not(.is-grid) .post-content {
 	width: calc(100% - 185px);
+	flex-grow: 1;
 }
 
 .wp-block-latest-posts:not(.is-grid) .post-title,
